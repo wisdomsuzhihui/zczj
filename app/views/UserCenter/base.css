@@ -1,0 +1,160 @@
+/************
+ * 共用样式
+ ************/
+
+* {
+  box-sizing: border-box; // user-select: none;
+  // 去除移动端浏览器点击元素时的边框
+  /* 来自http://www.cnblogs.com/PeunZhang/archive/2013/02/28/2907708.html*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  /* For some Androids */
+}
+
+
+/*基本默认值  */
+
+[v-cloak] {
+  display: none;
+}
+
+html {
+  font-size: 62.5%;
+  color: #222;
+  font-family: "微软雅黑";
+}
+
+textarea,
+input,
+select,
+button {
+  font-family: "微软雅黑";
+}
+
+textarea {
+  resize: none;
+  display: block;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+::selection {
+  background-color: #b3d4fc;
+  text-shadow: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body,
+ul,
+dl,
+dt,
+dd,
+li,
+p,
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+input,
+select,
+button,
+textarea {
+  padding: 0;
+  outline: none;
+}
+
+input[type='text'],
+input[type='password'] {
+  -webkit-appearance: none; // iOS 输入框阴影
+}
+
+img {
+  vertical-align: top;
+}
+
+.form-warp {
+  width: 800px;
+  margin: 0 auto;
+  font-size: 0
+}
+
+.form-warp span {
+  display: inline-block;
+  font-size: 1.6rem;
+}
+
+.form-warp li {
+  margin-top: 10px;
+}
+
+.form-warp span.t-t {
+  width: 120px;
+  text-align: right;
+  margin-right: 10px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.form-warp span.t-val {
+  display: inline-block;
+  width: -moz-calc(100% - 130px);
+  width: -webkit-calc(100% - 130px);
+  width: calc(100% - 130px)
+}
+
+.form-warp input[type='text'] {
+  height: 30px;
+  line-height: normal;
+  border: 1px #ccc solid;
+  border-width: 0 0 1px 0;
+  width: 100%;
+}
+
+.form-warp input[type='text']:focus {
+  border-color: #b3d4fc;
+}
+
+.form-warp .btn-submit {
+  margin-top: 30px;
+}
+
+.form-warp .btn-submit input.btn-sub {
+  height: 40px;
+  border: 1px #009ff0 solid;
+  padding: 0 40px;
+  background: #009ff0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  text-align: center;
+  width: 20%;
+}
+
+@media only screen and (max-width: 50em) {
+  .form-warp {
+    width: 100%;
+    padding: 20px 15px;
+  }
+  .form-warp .btn-submit span.t-t {
+    display: none;
+  }
+  .form-warp .btn-submit span.t-val {
+    width: 100%;
+  }
+  .form-warp .btn-submit input.btn-sub {
+    width: 100%;
+  }
+}
