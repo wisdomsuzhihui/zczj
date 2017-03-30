@@ -9,5 +9,9 @@ module.exports = function (sequelize, DataTypes) {
     userId: DataTypes.STRING,
     expires: DataTypes.DATE,
     data: DataTypes.STRING(50000)
+  }, {
+    tableName: 'ZC_Session',
+    timestamps: false,
+    freezeTableName: true
   })
 }

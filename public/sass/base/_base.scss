@@ -18,10 +18,9 @@
 
 /*基本默认值  */
 
-[v-cloak] {
-  display: none;
-}
-
+// [v-cloak] {
+//   display: none;
+// }
 html {
   font-size: 62.5%;
   color: #222;
@@ -54,6 +53,7 @@ button {
   cursor: pointer;
 }
 
+body,
 ul,
 dl,
 dt,

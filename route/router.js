@@ -9,9 +9,15 @@ var Index = require('../app/controllers/Index/index'),
 module.exports = function (app) {
   // 用户登录处理
   app.use(function (req, res, next) {
-    console.log(req.session + '==============')
+    console.log(req.session + '======**======')
     app.locals.user = req.session.user; // 将session中保存的用户名存储到本地变量中
     next();
   });
+
+  /*============== 公共路由 ==============*/
   app.get('/', Index.index);
+
+  // 用户登陆路由
+  app.get('/signin', Passport.showSignin)
+  app.get('/passport/signin', Passport.signin)
 };
