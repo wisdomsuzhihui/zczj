@@ -1,0 +1,74 @@
+@charset "utf-8";
+@import "../base/reset";
+
+/**********************************************/
+
+//- 头部
+header {
+  height: 50px;
+  line-height: 50px;
+  background: $gray-darker;
+  @include opacity(0.9);
+  color: #fff;
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.nav {
+  .logo {
+    float: left;
+    display: inline-block;
+    height: 50px;
+    width: 80px;
+    overflow: hidden;
+    .icon {
+      font-size: 3rem;
+    }
+    span {
+      font-size: 2rem;
+      margin-left: 10px;
+    }
+  }
+  nav {
+    float: left;
+    font-size: 1.6rem;
+    height: 100%;
+    overflow: hidden;
+    width: calc(100% - 200px);
+    display: flex;
+    justify-content: center;
+    a {
+      flex: 1;
+      text-align: center;
+    }
+  }
+  .login-btn {
+    float: right;
+    .icon {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+// 1150
+@media only screen and( max-width: 71.875em) {}
+
+// 1050
+@media only screen and( max-width: 62.625em) {}
+
+@media only screen and( max-width: 59.375em) {}
+
+// 小于1200px;
+@media only screen and (max-width: 75em) {}
+
+//小于800px;
+@media only screen and (max-width: 50em) {}
+
+//小于600px;
+@media only screen and (max-width: 37.5em) {}
+
+//小于480px;
+@media only screen and (max-width: 30em) {}

@@ -54,9 +54,10 @@ describe('store db', function () {
 
   it('should load the default model if No Table is specified in options', function () {
     var store = new SequelizeStore({
-      db: db
+      db: db,
+      table: 'ZC_Session'
     })
-    assert.equal(store.sessionModel.name, 'Session')
+    assert.equal(store.sessionModel.name, 'ZC_Session')
   })
 })
 

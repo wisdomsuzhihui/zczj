@@ -10,6 +10,7 @@ var express = require('express'),
   session = require('express-session'),
   SequelizeStore = require('connect-session-sequelize')(session.Store),
   db = require('./config/db'),
+
   port = process.env.PORT || 3000,
   app = express();
 
@@ -17,8 +18,7 @@ var express = require('express'),
 app.set('views', './app/views/pages');
 app.set('view engine', 'jade');
 
-
-db.import(path.join(__dirname, './app/models/ZC_Session'))
+db.import('./app/models/ZC_Session')
 app.use(cookieParser());
 app.use(session({
   secret: 'zczj',

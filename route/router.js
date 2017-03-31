@@ -9,8 +9,9 @@ var Index = require('../app/controllers/Index/index'),
 module.exports = function (app) {
   // 用户登录处理
   app.use(function (req, res, next) {
-    console.log(req.session + '======**======')
     app.locals.user = req.session.user; // 将session中保存的用户名存储到本地变量中
+    console.log(JSON.stringify(app.locals.user))
+
     next();
   });
 

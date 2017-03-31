@@ -49,7 +49,7 @@ var signOjbect = {
                 console.log('密码填写错误');
                 break;
               default:
-                alert('登录成功')
+                console.log('登录成功')
             }
           })
       }

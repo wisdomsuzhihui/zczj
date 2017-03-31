@@ -23,17 +23,27 @@ exports.signin = function (req, res) {
   var _name = _user.name || '',
     _password = _user.password || '';
 
-  User.findAll({
+  User.findOne({
     where: {
       Phone: _name
-    }
+    },
+    include: [{
+      all: true
+    }]
   }).then(function (users) {
+    if (!users) {
+      return res.json({
+        data: 0
+      });
+    } else {
 
-    console.log('======')
-    console.log(users)
-    return res.json({
-      data: 0
-    })
+      req.session.user = users;
+      console.log('======')
+      console.log(users)
+      return res.json({
+        data: 3
+      })
+    }
   })
 
 
