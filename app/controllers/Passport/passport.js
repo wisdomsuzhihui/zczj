@@ -51,3 +51,4 @@ exports.signin = function (req, res) {
 
 
 }
+//- https://github.com/sequelize/sequelize/blob/master/test/integration/model/create/include.test.js
