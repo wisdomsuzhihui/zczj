@@ -1,7 +1,10 @@
 var sequelize = require('../../../config/db')
 var path = require('path')
 sequelize.import(path.join(__dirname, '../../models/ZC_Session'))
-var User = sequelize.import('../../models/UserInfo')
+var UserInfo = sequelize.import('../../models/UserInfo')
+var UserMoreInfo = sequelize.import('../../models/UserMoreInfo')
+// 建立模型之间的关系
+var Isee = UserInfo.belongsTo(UserMoreInfo)
 /* 用户登录页面渲染控制器 */
 exports.showSignin = function (req, res) {
   res.render('passport/login', {
@@ -23,14 +26,14 @@ exports.signin = function (req, res) {
   var _name = _user.name || '',
     _password = _user.password || '';
 
-  User.findOne({
+  UserInfo.findOne({
     where: {
       Phone: _name
     },
-    include: [{
-      all: true
-    }]
+    include: [Isee]
+
   }).then(function (users) {
+
     if (!users) {
       return res.json({
         data: 0

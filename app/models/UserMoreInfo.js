@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('UserMoreInfo', {
     UserMoreID: {
       type: DataTypes.INTEGER,
@@ -74,6 +74,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: "((0))"
     }
   }, {
-    tableName: 'UserMoreInfo'
+    tableName: 'UserMoreInfo',
+    timestamps: false,
+    freezeTableName: true
   });
 };
