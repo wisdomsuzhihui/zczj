@@ -41,6 +41,7 @@
     "connect-session-sequelize": "^4.1.0",
     "gulp-jshint": "^2.0.4",
     "jshint": "^2.9.4",
+    "md5": "^2.2.1",
     "sequelize": "^3.30.2",
     "tedious": "^1.15.0"
   },

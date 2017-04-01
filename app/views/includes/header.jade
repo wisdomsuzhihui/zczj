@@ -14,7 +14,16 @@ header
           a(href="#", title="title") 首页 
         .login-btn
           if user
-            span #{user.Account}
+            span.item
+              a.phone
+                img(src="http://pic01.zczj.com/avatar/#{user.UserMoreInfo.Avatar}", alt="")
+              .pop-up
+                a.userinfo.clearfix
+                  img(src="http://pic01.zczj.com/avatar/#{user.UserMoreInfo.Avatar}", alt="")
+                  span #{user.Account}
+                .menu
+                  a(href="/logout") 退出
+
           else
             a(href="/signin", title="title") 
                 i.icon.icon-login

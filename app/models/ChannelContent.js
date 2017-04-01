@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('ChannelContent', {
     ChannelContentID: {
       type: DataTypes.INTEGER,
@@ -56,6 +56,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: "((0))"
     }
   }, {
-    tableName: 'ChannelContent'
+    tableName: 'ChannelContent',
+    timestamps: false
   });
 };

@@ -43,6 +43,8 @@ header {
     a {
       flex: 1;
       text-align: center;
+      display: inline-block;
+      height: 50px;
     }
   }
   .login-btn {
@@ -50,6 +52,99 @@ header {
     .icon {
       font-size: 2.4rem;
     }
+    .phone {
+      img {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+      }
+    }
+  }
+  .item {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    &:hover .pop-up {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.3s cubic-bezier(0.31, 0.57, 0.68, 1.36) 0s;
+      visibility: visible;
+      z-index: 100;
+    }
+  }
+}
+
+
+/*二级弹层*/
+
+.pop-up {
+  background: #fff;
+  border: 1px $gray-dark solid;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  padding: 20px;
+  position: absolute;
+  right: 5px;
+  top: 52px;
+  transform: scale(0);
+  transform-origin: 90% 0 0;
+  transition: none 0s ease 0s;
+  visibility: hidden;
+  font-size: 1.4rem;
+  a {
+    color: $gray-dark;
+    &.userinfo {
+      display: block;
+      padding-bottom: 10px;
+      img {
+        border-radius: 30px;
+        float: left;
+        height: 35px;
+        margin-right: 10px;
+        width: 35px;
+      }
+      span {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  a:hover {
+    color: #00a9e0;
+  }
+  .menu {
+    a {
+      display: block;
+      height: 36px;
+      line-height: 36px;
+      border-top: solid 1px $gray-light;
+      padding: 0 6px;
+      font-size: 13px;
+      color: #828fb0;
+      text-align: left;
+      &:hover {
+        color: #00a9e0;
+      }
+    }
+  }
+  &::after {
+    border-color: none;
+    background: #fff none repeat scroll 0 0;
+    border-color: $gray-dark;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    content: " ";
+    height: 10px;
+    position: absolute;
+    right: 6px;
+    top: -6px;
+    transform: rotate(-45deg);
+    width: 10px;
   }
 }
 

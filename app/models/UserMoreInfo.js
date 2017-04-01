@@ -75,7 +75,6 @@ module.exports = function (sequelize, DataTypes) {
     }
   }, {
     tableName: 'UserMoreInfo',
-    timestamps: false,
-    freezeTableName: true
+    timestamps: false
   });
 };

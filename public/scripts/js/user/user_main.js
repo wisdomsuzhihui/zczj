@@ -41,15 +41,11 @@ var signOjbect = {
             }
           })
           .done(function (results) {
-            switch (results.data) {
-              case 0:
-                console.log('用户不存在');
-                break;
-              case 1:
-                console.log('密码填写错误');
-                break;
-              default:
-                console.log('登录成功')
+            if (results.resultId === 200) {
+              console.log(results.message)
+              window.location = '/'
+            } else {
+              console.log(results.message)
             }
           })
       }

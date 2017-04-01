@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
     data: DataTypes.STRING(50000)
   }, {
     tableName: 'ZC_Session',
-    // timestamps: false,
-    freezeTableName: true
+    timestamps: false,
+    // freezeTableName: true
   })
 }

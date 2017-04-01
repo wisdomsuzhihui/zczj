@@ -9,9 +9,7 @@ var Index = require('../app/controllers/Index/index'),
 module.exports = function (app) {
   // 用户登录处理
   app.use(function (req, res, next) {
-    app.locals.user = req.session.user; // 将session中保存的用户名存储到本地变量中
-    console.log(JSON.stringify(app.locals.user))
-
+    app.locals.user = req.session.user || ''; // 将session中保存的用户名存储到本地变量中
     next();
   });
 
@@ -21,4 +19,7 @@ module.exports = function (app) {
   // 用户登陆路由
   app.get('/signin', Passport.showSignin)
   app.get('/passport/signin', Passport.signin)
+
+  // 用户登出路由
+  app.get('/logout', Passport.logout)
 };

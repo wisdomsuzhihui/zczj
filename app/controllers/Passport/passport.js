@@ -1,10 +1,13 @@
-var sequelize = require('../../../config/db')
-var path = require('path')
+var sequelize = require('../../../config/db'),
+  path = require('path'),
+  UserInfo = sequelize.import('../../models/UserInfo'),
+  UserMoreInfo = sequelize.import('../../models/UserMoreInfo'),
+  md5 = require('md5')
 sequelize.import(path.join(__dirname, '../../models/ZC_Session'))
-var UserInfo = sequelize.import('../../models/UserInfo')
-var UserMoreInfo = sequelize.import('../../models/UserMoreInfo')
 // 建立模型之间的关系
-var Isee = UserInfo.belongsTo(UserMoreInfo)
+UserInfo.hasOne(UserMoreInfo, {
+  foreignKey: 'UserID'
+})
 /* 用户登录页面渲染控制器 */
 exports.showSignin = function (req, res) {
   res.render('passport/login', {
@@ -26,29 +29,46 @@ exports.signin = function (req, res) {
   var _name = _user.name || '',
     _password = _user.password || '';
 
-  UserInfo.findOne({
+  // 使用findOne对数据库中UserInfo进行查找
+  UserInfo.findAll({
     where: {
       Phone: _name
     },
-    include: [Isee]
-
+    include: [UserMoreInfo]
   }).then(function (users) {
-
+    console.log('==================+++++++++++++++++++++++++')
+    console.log(users[0].dataValues.Password)
+    console.log(JSON.stringify(users))
     if (!users) {
+
       return res.json({
-        data: 0
+        resultId: -1,
+        message: '用户不存在'
       });
+    }
+
+
+    if (users[0].dataValues.Password.toLowerCase() !== md5(md5(_password))) {
+      return res.json({
+        resultId: -1,
+        message: '密码错误'
+      })
     } else {
 
-      req.session.user = users;
-      console.log('======')
-      console.log(users)
+      req.session.user = users[0].dataValues;
       return res.json({
-        data: 3
+        resultId: 200,
+        message: '登录成功'
       })
     }
   })
 
 
+}
+
+exports.logout = function (req, res) {
+  delete req.session.user;
+
+  res.redirect('/')
 }
 //- https://github.com/sequelize/sequelize/blob/master/test/integration/model/create/include.test.js
