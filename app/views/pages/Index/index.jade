@@ -17,6 +17,18 @@ block content
             img(src="http://pic01.zczj.com/homeshow/#{item.ChannelContent.Pic}", alt="")
 
 
+  .news-list
+    each item in news.rows
+      if item.News
+        .item
+          .img
+            a(href="")
+              
+                img(src="http://pic01.zczj.com//counseling/#{item.News.newimages}", alt="")
+          .con
+            .title #{item.News.newtitle} ==== #{item.News.NewsID}
+
+  
   script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js")
   script(src="/libs/scripts/js/index/index.min.js")
   

@@ -20,12 +20,19 @@ exports.index = function (req, res) {
   }).then(function (banners) {
 
     Category.findAndCountAll({
+      // where: '',
       include: [{
-        model: New
+        model: New,
+
       }],
+      // order: [
+      //   [New, 'NewsID', 'DESC']
+      // ],
+      offset: 5,
       limit: 5
     }).then(function (news) {
-      console.log(news.count)
+      console.log(news.rows)
+      console.log(news)
       res.render('index/index', {
         title: '首页',
         banners: banners,

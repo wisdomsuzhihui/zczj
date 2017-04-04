@@ -36,10 +36,8 @@ exports.signin = function (req, res) {
     },
     include: [UserMoreInfo]
   }).then(function (users) {
-    console.log('==================+++++++++++++++++++++++++')
-    console.log(users[0].dataValues.Password)
-    console.log(JSON.stringify(users))
-    if (!users) {
+
+    if (!users.length) {
 
       return res.json({
         resultId: -1,

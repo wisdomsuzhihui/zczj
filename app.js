@@ -48,3 +48,5 @@ app.locals.moment = require('moment');
 app.listen(port);
 
 console.log('douban started on port:' + port);
+
+// eq: http://blog.csdn.net/yinkaihui/article/details/52038208
