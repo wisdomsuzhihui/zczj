@@ -7,7 +7,7 @@ var sequelize = require('../../../config/db'),
 Channel.hasOne(ChannelContent, {
   foreignKey: 'ChannelCode'
 })
-Category.hasOne(New, {
+Category.hasMany(New, {
   foreignKey: 'CategoryID'
 })
 exports.index = function (req, res) {
@@ -23,15 +23,15 @@ exports.index = function (req, res) {
       // where: '',
       include: [{
         model: New,
-
-      }],
-      // order: [
-      //   [New, 'NewsID', 'DESC']
-      // ],
-      offset: 5,
-      limit: 5
+        where: [{
+          'NewsID': {
+            '$ne': null
+          }
+        }],
+        limit: 1
+      }]
     }).then(function (news) {
-      console.log(news.rows)
+      // console.log(JSON.stringify(news.rows[0].News))
       console.log(news)
       res.render('index/index', {
         title: '首页',
