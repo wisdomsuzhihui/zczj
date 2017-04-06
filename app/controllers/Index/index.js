@@ -19,19 +19,16 @@ exports.index = function (req, res) {
 
   }).then(function (banners) {
 
-    Category.findAndCountAll({
-      // where: '',
-      include: [{
-        model: New,
-        where: [{
-          'NewsID': {
-            '$ne': null
-          }
-        }],
-        limit: 1
-      }]
+    New.findAndCountAll({
+      'where': {
+        'CategoryID': '53'
+      },
+      limit: 10,
+      order: [
+        ['NewsID', 'DESC']
+      ]
     }).then(function (news) {
-      // console.log(JSON.stringify(news.rows[0].News))
+      // console.log(JSON.stringify(news.rows))
       console.log(news)
       res.render('index/index', {
         title: '首页',
