@@ -43,7 +43,8 @@ function funAjax(URL, method, cb) {
   }
 
   // 拼接字符串
-  function rendHtml() {
+  function rendHtml(data) {
     var str = '';
+
   }
 })();
