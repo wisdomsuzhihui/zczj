@@ -21,10 +21,9 @@ block content
       .news-list
         each item in news.rows
           .item
-            .img
-              a(href="").img
-                
-                  img(src="http://pic01.zczj.com//counseling/#{item.newimages}@1e_1c_0o_0l_136h_220w_90q.src", alt="")
+            a(href="").img
+              
+                img(src="http://pic01.zczj.com//counseling/#{item.newimages}@1e_1c_0o_0l_136h_220w_90q.src", alt="")
             .con
               .title #{item.newtitle} ==== #{item.NewsID}
               .txt #{item.newsynopsis}
