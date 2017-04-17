@@ -21,7 +21,7 @@ exports.index = function (req, res) {
       'where': {
         'CategoryID': _category
       },
-      offset: curPage - 1 * pageSize,
+      offset: curPage * pageSize,
       limit: pageSize,
       order: [
         ['NewsID', 'DESC']
@@ -43,10 +43,10 @@ exports.index = function (req, res) {
 
       New.findAndCountAll({
         'where': {
-          // 'CategoryID': '53'
+          'CategoryID': '53'
         },
-        offset: 2,
-        limit: 2,
+        offset: 0,
+        limit: 14,
         order: [
           ['NewsID', 'DESC']
         ]

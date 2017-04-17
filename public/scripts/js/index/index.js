@@ -22,20 +22,28 @@ function funAjax(URL, method, cb) {
 (function () {
   var loadBtn = document.querySelector('.button-load');
   var curpage = 0,
-    cat = '',
-    url = '/?page=' + curpage + '&category=' + cat;
+    cat = 53;
   loadBtn.addEventListener('click', function () {
     // https://github.com/jaredreich/notie
     // notie.alert({
     //   type: 1,
     //   text: '加载中'
     // })
-    getData()
+    getData(cat)
 
   })
 
-  function getData(cat, page) {
+  function getData(cat) {
     curpage++;
+    var url = '/?page=' + curpage + '&category=' + cat;
+    funAjax(url, 'GET', function (results) {
+      // console.log(results)
 
+    })
+  }
+
+  // 拼接字符串
+  function rendHtml() {
+    var str = '';
   }
 })();
