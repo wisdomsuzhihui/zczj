@@ -10,7 +10,8 @@ $gray-light: lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
 // *********************************************
 //== FontSize
-$font-size-base : 14px !default;
+$font-size-base: 14px !default;
 // *********************************************
 //== Layout
 $max-width: 1200px !default;
+$center: 0 auto;

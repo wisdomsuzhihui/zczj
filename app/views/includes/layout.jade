@@ -5,9 +5,12 @@ html(lang="en")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		title #{title} 
 		link(href="/libs/css/base/base.min.css", rel="stylesheet")
+		link(href="https://unpkg.com/notie/dist/notie.min.css", rel="stylesheet")
+		script(src="https://unpkg.com/notie")
 		include ./head
 		block link
 	body
 		include ./header
 		block content
 		block footer
+		

@@ -1,0 +1,16 @@
+// border
+$bdc:#e9ebed;
+.news-list {
+  .item {
+    display: flex;
+    border-bottom: 1px $bdc solid;
+    padding: 10px 0;
+    .img {
+      width: 220px;
+      display: inline-block;
+    }
+    .con {
+      flex: 1;
+    }
+  }
+}

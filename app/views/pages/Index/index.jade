@@ -16,16 +16,21 @@ block content
           a(href="#{item.ChannelContent.Link}" target="_blank")
             img(src="http://pic01.zczj.com/homeshow/#{item.ChannelContent.Pic}", alt="")
 
-
-  .news-list
-    each item in news.rows
-      .item
-        .img
-          a(href="")
-            
-              img(src="http://pic01.zczj.com//counseling/#{item.newimages}", alt="")
-        .con
-          .title #{item.newtitle} ==== #{item.NewsID}
+  main
+    section.main
+      .news-list
+        each item in news.rows
+          .item
+            .img
+              a(href="").img
+                
+                  img(src="http://pic01.zczj.com//counseling/#{item.newimages}@1e_1c_0o_0l_136h_220w_90q.src", alt="")
+            .con
+              .title #{item.newtitle} ==== #{item.NewsID}
+              .txt #{item.newsynopsis}
+      .button-box
+        a.button.button-load(href="javascript:;") 加载更多
+    aside.side
 
   
   script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js")
