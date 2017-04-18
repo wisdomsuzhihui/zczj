@@ -57,6 +57,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   }, {
     tableName: 'ChannelContent',
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true
   });
 };

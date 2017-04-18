@@ -24,5 +24,6 @@ module.exports = function (sequelize, DataTypes) {
   }, {
     tableName: 'Channel',
     timestamps: false,
+    freezeTableName: true
   });
 };

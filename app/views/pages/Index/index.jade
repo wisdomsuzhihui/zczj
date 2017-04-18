@@ -1,0 +1,48 @@
+extends ../../includes/layout
+block link
+  meta(name="keywords" content="")
+  meta(name="description" content="xxx")
+  link(href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css", rel="stylesheet")
+  link(href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.theme.default.min.css", rel="stylesheet")
+  link(href="/libs/css/index/index.min.css", rel="stylesheet")
+block content
+  main
+    section.main
+      //- banner 
+      .banner-top.owl-carousel.owl-theme#banner.slide
+        each item in banners
+          div.item
+            a(href="#{item.ChannelContent.Link}" target="_blank")
+              img(src="http://pic01.zczj.com/homeshow/#{item.ChannelContent.Pic}", alt="")
+      .main-contain
+        //- bt-list
+        .bt-list
+          each item in btlist
+            a.item(href="#{item.ChannelContent.Link}" target="_blank")
+              img(src="http://pic01.zczj.com/homeshow/#{item.ChannelContent.Pic}@1e_1c_0o_0l_150h_240w_90q.src", alt="")
+              span.tag #{item.ChannelContent.Remark}
+              .mark
+              p.title.ellipsis #{item.ChannelContent.Title}
+        //- 今日推荐
+        .index-box
+          .index-title
+            span 今日推荐
+        .index-box
+          .index-title
+            span 今日推荐
+
+
+    //-右侧
+    aside.side#aside
+      .owl-carousel.owl-theme#special.slide.banner-aside
+        each item in sp
+          .itme
+            a(href="#{item.Url}" target="_blank")
+              img(src="http://pic01.zczj.com/special/#{item.Pic}", alt="")
+            span.tag 活动
+            
+
+
+  //- js
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js")
+  script(src='/libs/scripts/js/index/index.min.js')

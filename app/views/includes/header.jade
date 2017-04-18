@@ -1,31 +1,62 @@
 //- 头部
 header
-  .header-warp.container
-      .nav.clearfix
-        a.logo
-          i.icon.icon-logo
-          span 老苏
+  .zj-header
+    .zj-container
+      .zj-nav.clearfix
+        a.logo(href="/")
+          img(src="/images/logo.png", alt="")
         .triggers
+          a(href="javascript:;").search-btn
+            i.icon.icon-ss
+          a(href="javascript:;").mean-btn
+            i.icon.icon-mulu
         nav
-          a(href="#", title="title") 首页 
-          a(href="#", title="title") 首页 
-          a(href="#", title="title") 首页 
-          a(href="#", title="title") 首页 
-          a(href="#", title="title") 首页 
-        .login-btn
-          if user
-            span.item
-              a.phone
-                img(src="http://pic01.zczj.com/avatar/#{user.UserMoreInfo.Avatar}", alt="")
-              .pop-up
-                a.userinfo.clearfix
-                  img(src="http://pic01.zczj.com/avatar/#{user.UserMoreInfo.Avatar}", alt="")
-                  span #{user.Account}
-                .menu
-                  a(href="/logout") 退出
+          ul.clearfix
+            li#home
+              a(href="/" target='_blank') 首页
+            li
+              a(href="/news" target='_blank') 资讯
+            li
+              a(href="/activity" target='_blank') 活动
+            li
+              a(href="/daohang" target='_blank') 导航
+            li
+              a(href="/project" target='_blank') 项目
+            li
+              a(href="/tech" target='_blank') 学院
+            li
+              a(href="http://bbs.zczj.com") 论坛
+        .zj-login
+          ul.sub-nav
+            li.search-item
+              a(data-stat-hover="sousuo" href="javascript:;")
+                i.icon.icon-ss
+              .search-warp.pop-up
+                .search
+                  form#form_Search(action="")
+                    input(type="hidden")#hdTopSearchType
+                    input(name='poster' type="hidden")
+                    input(name='keyword' type='hidden')
+                    input.fl.search-input(name='txtSearchKeyWord' type='search')#txtSearchKeyWord
+                    button.fr.search-btn.icon.icon-ss(type='button')
+            li.app-download
+              a(data-stat-hover="kehuduan" href="javascript:;")
+                i.icon.icon-shouji
+              .mobile-wrap.pop-up
+                img(src="https://www.zczj.com/skin/images/downApp/ma.png" alt="" width="120").qr
+                p.mobile-text iPhone & Android
+            li#head_show.login-actions
+              span.login_btn_head
+                a.login-link.J_login(href="javascript:LoginMon();") 登录
+                ||
+                a(href='/passport/reg') 注册
 
-          else
-            a(href="/signin", title="title") 
-                i.icon.icon-login
-
-
+  .zj-header.sub_nav
+    .zj-container
+      ul
+        li
+          a(href="/") 老苏测试
+        li
+          a(href="/") 老苏
+        li
+          a(href="/") 测试

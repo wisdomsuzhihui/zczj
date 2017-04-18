@@ -1,12 +1,12 @@
 @import '../components/aside';
-@import '../button'; // 
-@import '../components/newstitle';
-@import '../components/newsinfo';
-@import '../components/introduction';
-@import '../components/newstext';
-@import '../components/newsnext';
-@import '../components/newsrelated';
-@import '../components/newstag';
+@import '../components/button';
+@import '../components/news/newstitle';
+@import '../components/news/newsinfo';
+@import '../components/news/introduction';
+@import '../components/news/newstext';
+@import '../components/news/newsnext';
+@import '../components/news/newsrelated';
+@import '../components/news/newstag';
 @import '../components/share';
 @import '../components/comment';
 .news-detail {

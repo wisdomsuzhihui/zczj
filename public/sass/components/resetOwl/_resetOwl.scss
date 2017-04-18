@@ -1,0 +1,28 @@
+/*重置轮播插件样式*/
+
+$curC:#3574f7;
+.slide {
+  position: relative;
+  .owl-nav.disabled+.owl-dots {
+    margin-top: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    text-align: left;
+  }
+  .owl-dots {
+    padding-left: 10px;
+    .owl-dot span {
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      margin: 5px 4px;
+    }
+    .owl-dot.active span,
+    .owl-dot:hover span {
+      background: $curC;
+    }
+  }
+}

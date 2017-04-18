@@ -1,8 +1,8 @@
-@import '_reset';
-@import '_font';
+@import './components/_reset';
+@import './components/_font';
 @import './mixin/_pop';
 @import './mixin/mixin';
-@import '_loading';
+@import './components/_loading';
 @import './components/footer/footer';
 
 /*var*/

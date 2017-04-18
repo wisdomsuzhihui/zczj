@@ -1,6 +1,6 @@
 @import '../components/_aside';
-@import '../button';
-@import '../components/newslist';
+@import '../components/button';
+@import '../components/news/newslist';
 .news-banner {
   .main {
     width: calc(100% - 450px);

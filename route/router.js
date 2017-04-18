@@ -1,5 +1,6 @@
 var News = require('../app/controllers/News/news'),
   Passport = require('../app/controllers/passport/passport'),
+  Index = require('../app/controllers/Index/index'),
 
 
 
@@ -14,7 +15,8 @@ module.exports = function (app) {
   });
 
   /*============== 公共路由 ==============*/
-
+  // 首页
+  app.get('/', Index.index)
   // 用户登陆路由
   app.get('/signin', Passport.showSignin)
   app.get('/passport/signin', Passport.signin)

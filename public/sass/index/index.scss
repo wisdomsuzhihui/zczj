@@ -1,3 +1,28 @@
-.footer_bg {
-  display: none;
+@import '../components/aside';
+@import '../components/resetOwl/resetOwl';
+@import '../components/index/banner-aside';
+@import '../components/news/_newslist';
+@import '../components/index/_btlist';
+@import '../components/index/_title';
+@import '../mixin/_mixin';
+main {
+  >section {
+    width: calc(100% - 275px);
+    padding-right: 30px;
+  }
+}
+
+@media screen and (max-width: 47.9375em) {
+  main {
+    width: 100%;
+    .main-contain {
+      max-width: 1100px;
+      width: 96%;
+      margin: 0 auto;
+    }
+    >section {
+      width: 100%;
+      padding-right: 0;
+    }
+  }
 }

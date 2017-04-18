@@ -20,8 +20,14 @@ var path = {
 
 // 将scss文件转成css文件并压缩
 gulp.task('styles', function () {
-  return plugins.rubySass(path.src.sass)
+  return plugins.rubySass(path.src.sass, {
+      sourcemap: true
+    })
+
     .on('error', plugins.rubySass.logError)
+    .pipe(plugins.sourcemaps.write())
+    .pipe(plugins.sourcemaps.identityMap())
+
     .pipe(plugins.autoprefixer({ // 自动添加游览器前缀
       browsers: ['last 2 versions'],
       cascade: false
@@ -30,6 +36,11 @@ gulp.task('styles', function () {
       suffix: '.min'
     }))
     .pipe(plugins.minifyCss())
+    // for file sourcemaps 
+    .pipe(plugins.sourcemaps.write('../maps', {
+      includeContent: false,
+      sourceRoot: 'source'
+    }))
     .pipe(gulp.dest(path.dest.sass));
 });
 
