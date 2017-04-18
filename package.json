@@ -9,7 +9,6 @@
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.14.0",
-    "ccap": "^0.6.4",
     "connect-multiparty": "^2.0.0",
     "cookie-parser": "^1.4.0",
     "del": "^2.1.0",
