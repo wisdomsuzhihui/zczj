@@ -1,0 +1,22 @@
+/**
+* 来源/作者/时间
+*/
+
+.news-info {
+  color: #999;
+  font-size: 14px;
+  margin-top: 26px;
+  >span:not(:last-child) {
+    margin-right: 24px;
+  }
+  @media screen and (max-width: 1024px) {
+    font-size: 10px;
+  }
+  @media screen and (max-width:767px) {
+    display: flex;
+    justify-content: space-between;
+    span:not(:last-child) {
+      margin-right: 0;
+    }
+  }
+}

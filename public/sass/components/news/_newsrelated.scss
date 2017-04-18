@@ -1,0 +1,120 @@
+/*
+* 相关文章
+*/
+
+.news-related {
+  margin-top: 20px;
+  &-head {
+    font-size: 18px;
+    color: #494d58;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  &-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: strecth;
+  }
+  &-item {
+    position: relative;
+    display: block;
+    width: 30%;
+    img {
+      width: 100%;
+    }
+    .related-title {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      font-size: 15px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, .4);
+      text-align: center;
+      >span {
+        display: inline-block;
+        text-align: left;
+      }
+    }
+    .related-info {
+      display: none;
+      span:nth-of-type(2) {
+        font-size: 20px;
+        line-height: 16px;
+        display: inline-block;
+        vertical-align: bottom;
+      }
+    }
+  } // ipad
+  @media (min-width:767px) and (max-width:1024px) {
+    &-item {
+      width: 32%;
+      .related-title {
+        font-size: 11px;
+      }
+    }
+  }
+  @media screen and (max-width:767px) {
+    &-head {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 0;
+      border-bottom: 1px solid #d6dadf;
+      &::before {
+        content: ' ';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 75px;
+        height: 3px;
+        background-color: #3e85ff;
+      }
+    }
+    &-list {
+      display: block;
+    }
+    &-item {
+      width: 100%;
+      padding: 18px 0;
+      border-bottom: 1px solid #d6dadf;
+      display: flex;
+      img {
+        width: 35%;
+        height: 100%;
+      }
+      >div {
+        flex: 1;
+        margin-left: 10px;
+        position: relative;
+      }
+    }
+    .related-title {
+      position: static;
+      background: none;
+      color: #33363b;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 0;
+      text-align: left;
+      >span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+    .related-info {
+      position: absolute;
+      display: block;
+      bottom: 0;
+      width: 100%;
+      color: #9f9f9f;
+      font-size: 12px;
+      .news-type {
+        color: #3e85ff;
+      }
+    }
+  }
+}

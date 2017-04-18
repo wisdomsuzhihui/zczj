@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'iconfont';
+  /* project id 270139 */
+  src: url('//at.alicdn.com/t/font_4cv3sa3yeejt6gvi.eot');
+  src: url('//at.alicdn.com/t/font_4cv3sa3yeejt6gvi.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_4cv3sa3yeejt6gvi.woff') format('woff'), url('//at.alicdn.com/t/font_4cv3sa3yeejt6gvi.ttf') format('truetype'), url('//at.alicdn.com/t/font_4cv3sa3yeejt6gvi.svg#iconfont') format('svg');
+}
+
+.icon {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// loading
+.icon-loading::before {
+  content: '\e6db';
+}
+
+// top
+.icon-top::before {
+  content: '\e64c';
+}
+
+// 收藏
+.icon-collection::before {
+  content: '\e60c';
+}
+
+// 评论
+.icon-comment::before {
+  content: '\e600';
+}
+
+// 打赏
+.icon-play::before {
+  content: '\e7fb';
+}
+
+// 微信
+.icon-wechat::before {
+  content: '\e606';
+}
+
+// 微博
+.icon-weibo::before {
+  content: '\e619';
+}
+
+// 浏览量
+.icon-view:before {
+  content: "\e621";
+}
+
+.icon-fanhui:before {
+  content: "\e609";
+}
+
+// 关闭
+.icon-guanbi:before {
+  content: "\e613";
+}
+
+// 手机
+.icon-shouji:before {
+  content: "\e60b";
+}
+
+// 搜索
+.icon-ss:before {
+  content: "\e60a";
+}
+
+// 目录
+.icon-mulu:before {
+  content: "\e6f5";
+}
+
+.icon-dengpao:before {
+  content: "\e601";
+}
+
+.icon-bai2:before {
+  content: "\e602";
+}
+
+.icon-renwu:before {
+  content: "\e603";
+}
+
+// 消息
+.icon-msg:before {
+  content: "\e608";
+}
+
+.icon-shuju:before {
+  content: "\e604";
+}
+
+.icon-cehua:before {
+  content: "\e605";
+}
+
+// 赞
+.icon-zan:before {
+  content: "\e607";
+}

@@ -1,0 +1,144 @@
+/*
+*
+* 评论组件
+*/
+
+$commentUserColor:#a8a9ab;
+.comment {
+  &-container {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 100px;
+  }
+  &-head {
+    font-size: 18px;
+    font-weight: bold;
+    color: #494d58;
+    span {
+      color: #616a73;
+      font-weight: normal;
+      &.length {
+        color: #3574f7;
+      }
+    }
+  }
+  &-box {
+    border: 1px solid #c5c3c3;
+    width: 100%;
+    height: 110px;
+    padding: 10px 8px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  &-item {
+    border-top: 1px dashed #e3e3e3;
+  }
+  &-list {
+    margin-top: 22px;
+    &-type {
+      margin: 15px 0;
+      font-size: 14px;
+    }
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      p {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+    .comment-replay-list {
+      padding-left: 70px;
+      font-size: 14px;
+      @media screen and (max-width: 767px) {
+        padding-left: 45px;
+      }
+      >li {
+        margin: 8px 0;
+        display: flex;
+        .commonet-reply-content {
+          flex: 1;
+        }
+      }
+      .commonet-reply-user,
+      .commonet-reply-date {
+        color: $commentUserColor;
+      }
+    }
+    .comment-reply {
+      display: none;
+      margin-bottom: 10px;
+      .comment-box {
+        height: 60px;
+      }
+    }
+    &-content {
+      font-size: 13px;
+      margin-right: 20px;
+      color: #616a73;
+      flex: 1;
+      display: flex;
+      .comment-avatar {
+        width: 58px;
+        height: 58px;
+        margin-right: 12px;
+        border-radius: 50%;
+      }
+      .comment-info {
+        flex: 1;
+        .comment-username {
+          color: $commentUserColor;
+          margin-bottom: 12px;
+          @media screen and (max-width: 767px) {
+            margin-bottom: 6px;
+          }
+        }
+        .comment-content {
+          @media screen and (max-width: 767px) {
+            margin-bottom: 6px;
+          }
+        }
+      }
+      @media screen and (max-width: 767px) {
+        font-size: 12px;
+        .comment-avatar {
+          width: 33px;
+          height: 33px;
+        }
+      }
+    }
+    &-time {
+      color: #a8a9ab;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .control {
+        text-align: right;
+      }
+      .reply {
+        margin-right: 10px;
+      }
+      .icon {
+        font-size: 22px;
+        cursor: pointer;
+      }
+      @media screen and (max-width:767px) {
+        font-size: 10px;
+        .icon {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .button {
+    display: block;
+    width: 100%;
+  }
+}

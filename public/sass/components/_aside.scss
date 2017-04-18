@@ -1,0 +1,196 @@
+/**
+*
+* 侧边栏
+**/
+
+$width: 275px; // 侧边栏宽度
+$border-color: #3574f7;
+$title-color: #344a5c;
+$title-size: 17px;
+$toplist-bdcolor: #c0c4c8;
+#aside {
+  width: $width;
+  .aside-item {
+    padding-bottom: 44px;
+    border-top: 2px solid $border-color;
+    &-title {
+      font-size: $title-size;
+      color: $title-color;
+      text-align: center;
+      font-weight: bold;
+      margin: 17px 0;
+    }
+    .sub-nav {
+      border-top: 1px dashed #828a92;
+      padding-top: 15px;
+      font-size: 0;
+      >a {
+        display: inline-block;
+        width: 50%;
+        font-size: 15px;
+        color: #b9b8b8;
+        text-align: center;
+        &.current,
+        &:hover {
+          color: #4a5259;
+        }
+      }
+    } // top10
+    .top-list {
+      font-size: 15px;
+      color: #3d464d;
+      li {
+        position: relative;
+        padding: 15px 20px 5px;
+        border-bottom: 1px solid $toplist-bdcolor;
+        &::before {
+          content: ' ';
+          position: absolute;
+          left: 2px;
+          top: 20px;
+          width: 10px;
+          height: 10px;
+          background-color: #8fc31f;
+          border-radius: 50%;
+        }
+        &:nth-of-type(1) {
+          &::before {
+            background-color: #e60012;
+          }
+        }
+        &:nth-of-type(2) {
+          &::before {
+            background-color: #f39700;
+          }
+        }
+        &:nth-of-type(3) {
+          &::before {
+            background-color: #fff100;
+          }
+        }
+        * {
+          line-height: 1.4;
+        }
+      }
+      .sort-status {
+        display: flex;
+        justify-content: space-between;
+        color: #b4b3b3;
+        margin-top: 6px;
+        .icon {
+          font-size: 18px;
+        }
+      }
+    } // 名家推荐
+    .famous-list {
+      padding: 0 18px;
+      margin-bottom: 26px;
+      display: flex;
+      .famous-img {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+      }
+      .famous-intro {
+        flex: 1;
+      }
+      .famous-name {
+        color: #020000;
+        font-size: 16px;
+      }
+      .famous-txt {
+        color: #6e6e6e;
+        font-size: 14px;
+        height: 40px;
+        overflow: hidden;
+      }
+    } // 友情链接
+    .links {
+      a {
+        color: #838b94;
+        font-size: 15px;
+        margin-right: 8px;
+        line-height: 1.8;
+      }
+    } // 关于我们
+    .about-us {
+      dt {
+        font-size: 17px;
+        color: #3e85ff;
+        text-align: center;
+      }
+      dd {
+        margin-top: 14px;
+        font-size: 15px;
+        color: #838b94;
+      }
+      .about-logo {
+        display: inline-block;
+      }
+      .about-links {
+        display: flex;
+        justify-content: space-around;
+      }
+      .about-qrcode {
+        text-align: center;
+        img {
+          width: 123px;
+          display: inline-block;
+        }
+      }
+      .about-contact {
+        padding-left: 50px;
+      }
+    }
+    .button-wrapper {
+      margin-top: 15px;
+      text-align: center;
+    }
+    &-fourLike {
+      padding-bottom: 25px;
+      border: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-content: space-between;
+      .column {
+        flex-basis: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 0;
+        .button {
+          font-size: 1.6rem;
+          display: inline-block;
+          padding: 0;
+          width: 48%;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          box-shadow: 0px 0.1em 3px #3067c6, 0px 0.3em 1px #3067c6;
+          &:hover {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ipad
+@media (min-width: 768px) and (max-width: 1024px) {
+  #aside {
+    width: 200px;
+    .aside-item {
+      .top-list {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+// 手机
+@media screen and (max-width: 767px) {
+  #aside {
+    display: none;
+  }
+}

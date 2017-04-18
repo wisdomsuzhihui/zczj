@@ -1,0 +1,25 @@
+/**
+* 导读
+*/
+
+.news-introduction {
+  position: relative;
+  width: 100%;
+  min-height: 84px;
+  font-size: 15px;
+  color: #494a4a;
+  background-color: #ebecee;
+  padding: 25px 20px 25px 66px;
+  margin-top: 33px;
+  overflow: hidden;
+  &:before {
+    content: '导读';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 30px;
+    font-size: 30px;
+    color: #b3b3b3;
+    transform: translateY(-50%);
+  }
+}

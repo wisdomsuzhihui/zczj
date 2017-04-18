@@ -1,0 +1,26 @@
+/**
+* 新闻正文
+*/
+
+.news-text {
+  margin-top: 34px;
+  color: #494d58;
+  font-size: 16px;
+  .read-part {
+    border: 1px #ddd dashed;
+    margin-top: 20px;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    a {
+      color: #3574f7;
+    }
+  }
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  @media screen and (max-width:767px) {
+    img {}
+  }
+}

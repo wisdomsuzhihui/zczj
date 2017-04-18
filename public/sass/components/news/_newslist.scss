@@ -1,0 +1,313 @@
+/**
+新闻列表
+*/
+
+$border-color:#e9ebed;
+.newsList {
+  .zx_news_item {
+    border-bottom: 1px $border-color solid;
+    padding: 20px 0 15px;
+    .zx_itme_con {
+      display: flex;
+      >.l {
+        width: 220px;
+        height: 136px;
+        position: relative;
+        img {
+          width: 100%;
+        }
+        @at-root {
+          .tag {
+            display: inline-block;
+            color: #e9ebed;
+            font-size: 14px;
+            height: 22px;
+            line-height: 22px;
+            padding: 0 10px;
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+          }
+        }
+      }
+      >.r {
+        flex: 1;
+        padding-left: 15px;
+        .title {
+          display: block;
+          overflow: hidden;
+          height: 30px;
+          line-height: 30px;
+          font-size: 2rem;
+          font-weight: bold;
+          margin-bottom: 4px;
+        }
+        .txt {
+          color: #8a97a4;
+          font-size: 14px;
+          line-height: 24px;
+          height: 48px;
+          overflow: hidden;
+        }
+        .item_bar {
+          display: flex;
+          align-content: space-between;
+          line-height: 40px;
+          height: 40px;
+          font-size: 1.4rem;
+          overflow: hidden;
+          color: #838b94;
+          .l {
+            flex: 1;
+          }
+          .r {
+            width: 126px;
+            text-align: right;
+            .icon {
+              vertical-align: middle;
+              &-view {
+                font-size: 2rem;
+              }
+            }
+          }
+          span+span {
+            margin-left: 10px;
+          }
+          span {
+            display: inline-block;
+            &::before {
+              content: '';
+              display: inline-block;
+              width: 4px;
+              height: 4px;
+              border-radius: 2px;
+              background: #616a73;
+              vertical-align: middle;
+              margin-right: 4px;
+            }
+            &.f_blue {
+              color: #0c7efe;
+            }
+            &.no_cirl::before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  .lightBox_item {
+    padding: 20px 0 15px;
+    border-bottom: 1px #e9ebed solid;
+    .title {
+      display: block;
+      overflow: hidden;
+      height: 30px;
+      line-height: 30px;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .text {
+      color: #8a97a4;
+      font-size: 14px;
+      line-height: 24px;
+      max-height: 48px;
+      overflow: hidden;
+    }
+    .light_img {
+      li+li {
+        margin-left: 20px;
+      }
+      li {
+        display: inline;
+        float: left;
+        position: relative;
+        cursor: pointer;
+        width: calc(33.33333333333% - 20px);
+        margin-top: 10px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .item_bar {
+      height: 30px;
+      line-height: 30px;
+      color: #838b94;
+      font-size: 1.4rem;
+      margin-top: 10px;
+      display: flex;
+      align-content: space-between;
+      span {
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 4px;
+          height: 4px;
+          border-radius: 2px;
+          background: #616a73;
+          vertical-align: middle;
+          margin-right: 4px;
+        }
+        &.no_cirl {
+          &::before {
+            display: none;
+          }
+        }
+      }
+      .r {
+        width: 126px;
+        height: 30px;
+        line-height: 30px;
+        text-align: right;
+        span+span {
+          margin-left: 10px;
+        }
+        .icon {
+          vertical-align: middle;
+        }
+        .icon-view {
+          font-size: 20px;
+        }
+      }
+    }
+    .l {
+      width: calc(100% - 126px);
+      overflow: hidden;
+      height: 30px;
+      span.f_blue {
+        color: #0c7efe;
+      }
+      span+span {
+        margin-left: 10px;
+      }
+    }
+  }
+  .zx_news_minBrand {
+    margin-top: 15px;
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+    li+li {
+      margin-left: 10px;
+    }
+    li {
+      width: calc(50% - 5px);
+      overflow: hidden;
+      max-height: 200px;
+      img {
+        width: 100%;
+      }
+      .text {
+        display: none;
+      }
+    }
+  }
+}
+
+.button-box {
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+
+//860
+@media only screen and( max-width: 53.75em) {
+  .newsList .zx_news_item .zx_itme_con>.l {
+    width: 154px;
+    height: 95px;
+  }
+  .newsList .zx_news_item .zx_itme_con>.r .item_bar {
+    font-size: 1.2rem;
+  }
+  .newsList .zx_news_item .zx_itme_con>.r .txt {
+    height: 24px;
+  } // .newsList .zx_news_item .zx_itme_con>.r .item_bar .r span {
+  //   // display: none;
+  //   // &.f_blue {
+  //   //   display: inline-block;
+  //   // }
+  // }
+  .newsList .zx_news_item .zx_itme_con>.r .item_bar .r {
+    // width: 70px;
+  }
+  .newsList .lightBox_item .item_bar {
+    font-size: 1.2rem;
+  }
+}
+
+//500
+@media only screen and(max-width: 31.25em) {
+  .newsList .zx_news_item .zx_itme_con>.r .item_bar {
+    font-size: 10px;
+  }
+  .newsList .zx_news_item .zx_itme_con>.r .item_bar .r {
+    display: none;
+  }
+  .newsList .zx_news_item .zx_itme_con>.l {
+    width: 120px;
+    height: 74px;
+  }
+  .newsList .zx_news_item {
+    padding: 10px 0;
+  }
+  .newsList .zx_news_item .zx_itme_con>.r .title {
+    font-size: 1.4rem;
+    height: 48px;
+    line-height: 24px;
+    overflow: hidden;
+  }
+  .newsList .zx_news_item .zx_itme_con>.r .item_bar {
+    height: 24px;
+    line-height: 24px;
+  }
+  .newsList {
+    .lightBox_item {
+      padding: 20px 0 15px;
+      border-bottom: 1px #e9ebed solid;
+      .title {
+        font-size: 1.4rem;
+      }
+      .text {
+        display: none;
+      }
+      .light_img {
+        li+li {
+          margin-left: 0px;
+        }
+        li {
+          display: block;
+          float: none;
+          width: 100%;
+          margin-top: 10px;
+          max-height: 198px;
+          overflow: hidden;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .newsList .lightBox_item .item_bar {
+    font-size: 1rem;
+  }
+  .tag {
+    font-size: 1.2rem;
+    height: 18px;
+    line-height: 18px;
+  }
+  .newsList .zx_news_minBrand {
+    display: block;
+    li+li {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+    li {
+      width: 100%;
+    }
+  }
+}

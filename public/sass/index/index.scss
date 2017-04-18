@@ -1,12 +1,3 @@
-@import '../components/news/news-list';
-.banner {
-  background: #fff;
-  img {
-    max-height: 400px;
-  }
-  .owl-theme .owl-nav.disabled+.owl-dots {
-    margin-top: -20px;
-    position: relative;
-    z-index: 10000;
-  }
+.footer_bg {
+  display: none;
 }

@@ -1,0 +1,25 @@
+@import '../components/aside';
+@import '../button'; // 
+@import '../components/newstitle';
+@import '../components/newsinfo';
+@import '../components/introduction';
+@import '../components/newstext';
+@import '../components/newsnext';
+@import '../components/newsrelated';
+@import '../components/newstag';
+@import '../components/share';
+@import '../components/comment';
+.news-detail {
+  margin-top: 30px;
+  padding-bottom: 30px;
+} // 新闻主体
+.news-content {
+  padding: 0 14px;
+  margin-right: 50px;
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-right: 36px;
+  }
+  @media screen and (max-width: 767px) {
+    margin: 0;
+  }
+}

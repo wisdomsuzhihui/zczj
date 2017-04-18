@@ -1,0 +1,16 @@
+/*
+  * tag标签
+  */
+
+.news-tag-container {
+  font-size: 16px;
+  >a {
+    display: inline-block;
+    padding: 6px 24px;
+    border-radius: 5px;
+    background-color: #ececec;
+    color: #6b7c93;
+    margin-right: 12px;
+    margin-top: 12px;
+  }
+}

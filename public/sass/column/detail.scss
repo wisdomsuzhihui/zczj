@@ -1,0 +1,19 @@
+@import '../button';
+@import '../components/newstitle';
+@import '../components/newsinfo';
+@import '../components/introduction';
+@import '../components/newstext';
+@import '../components/newsnext';
+@import '../components/newsrelated';
+@import '../components/newstag';
+@import '../components/share';
+@import '../components/comment';
+#aside {
+  width: 264px;
+}
+
+.news-text {
+  img {
+    margin: 0 auto;
+  }
+}

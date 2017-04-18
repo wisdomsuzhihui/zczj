@@ -53,8 +53,8 @@ exports.index = function (req, res) {
       }).then(function (news) {
         // console.log(JSON.stringify(news.rows))
         console.log(news)
-        res.render('index/index', {
-          title: '首页',
+        res.render('news/index', {
+          title: 'us',
           banners: banners,
           news: news
         })
@@ -62,25 +62,4 @@ exports.index = function (req, res) {
     })
 
   }
-}
-exports.newsList = function (req, res) {
-  var category = req.query.cat || 0,
-    page = req.query.page || 0,
-    pageSize = 14,
-    curPage = page;
-
-  New.findAndCountAll({
-    'where': {
-      'CategoryID': category
-    },
-    offset: curPage - 1 * pageSize,
-    limit: pageSize,
-    order: [
-      ['NewsID', 'DESC']
-    ]
-  }).then(function (news) {
-    console.log(news)
-    res.json(news)
-  })
-
 }

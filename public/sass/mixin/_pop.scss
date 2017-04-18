@@ -1,0 +1,12 @@
+@mixin pop() {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.3s cubic-bezier(0.31, 0.57, 0.68, 1.36) 0s;
+  visibility: visible;
+  z-index: 100;
+  top: 44px;
+  left: -20px;
+  &::after {
+    left: 30px;
+  }
+}

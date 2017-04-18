@@ -1,0 +1,125 @@
+$iconColor: #d3d7db;
+.share {
+  position: relative;
+  height: 30px;
+  margin-top: 30px;
+  text-align: right;
+  background-color: hsla(0, 0%, 100%, .92);
+  z-index: 22;
+  @media screen and (max-width: 767px) {
+    display: flex;
+    justify-content: space-around;
+  }
+  &.share-fixed {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    line-height: 60px;
+    border-top: 1px solid #d3d7db;
+    @media screen and (max-width: 767px) {
+      left: 0;
+      width: 100%;
+    }
+  }
+  .author {
+    float: left;
+    font-size: 15px;
+    >span {
+      color: #3574f7;
+    }
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+  .icon {
+    font-size: 32px;
+    color: inherit;
+  }
+  a:not(.author) {
+    margin: 0 15px;
+    color: $iconColor;
+  } // 收藏
+  .collection:hover,
+  .collection-success {
+    color: #ee950b!important;
+  } // 评论
+  .go-comment:hover {
+    color: #3574f7;
+  } // 微信
+  .wechat-share {
+    position: relative;
+    &:hover {
+      color: #75d172;
+      opacity: 1;
+      .share-qrcode {
+        display: flex;
+      }
+    }
+    .share-qrcode {
+      display: none;
+      position: absolute;
+      left: -50%;
+      top: -170px;
+      width: 240px;
+      height: 120px;
+      background-color: #fff;
+      padding: 5px;
+      border: 3px solid rgba(0, 0, 0, .2);
+      transform: translateX(-40%);
+      justify-content: space-around;
+      align-items: center;
+      z-index: 9;
+      .wechar-tips {
+        text-align: left;
+        color: #838b94;
+      }
+      p {
+        line-height: 2;
+      }
+      &::before,
+      &::after {
+        content: ' ';
+        position: absolute;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: {
+          width: 15px;
+          style: solid;
+          color: rgba(0, 0, 0, .2);
+          bottom: none;
+          left: {
+            color: transparent;
+          }
+          right: {
+            color: transparent;
+          }
+        }
+      }
+      &::before {
+        bottom: -15px;
+        border-top-color: rgba(0, 0, 0, .2);
+      }
+      &::after {
+        bottom: -12px;
+        border-top-color: #fff;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  } // 微博
+  .weibo-share:hover {
+    color: #d04340;
+  }
+  @media screen and (max-width:767px) {
+    a:hover {
+      color: $iconColor;
+    }
+  }
+}
+
+#canvas {
+  width: 100px;
+  height: 100px;
+}

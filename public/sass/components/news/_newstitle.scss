@@ -1,0 +1,14 @@
+/**
+  * 标题
+  */
+
+.news-title {
+  font-size: 30px;
+  color: #494d58;
+  font-weight: bold;
+  text-align: left;
+  @media screen and (max-width: 767px) {
+    font-size: 26px;
+    font-weight: normal;
+  }
+}

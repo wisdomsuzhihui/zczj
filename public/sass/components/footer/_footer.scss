@@ -1,0 +1,35 @@
+$ft_bg:#f1f1f1;
+$f_c1:#1b1b1b;
+$f_c2:#a4a8ac;
+.footer_bg {
+  background: $ft_bg;
+  padding: 35px 0;
+  font-size: 1.5rem;
+  color: $f_c2;
+  .zj-container {
+    display: flex;
+    justify-content: space-between;
+    >div {
+      flex: 1;
+      &.r {
+        dl {
+          padding-left: 20%;
+          padding-top: 40px;
+        }
+      }
+    }
+    .footer_wx {
+      >img {
+        float: left;
+        width: 76px;
+        margin-right: 10px;
+      }
+      p {
+        &.t_black {
+          color: $f_c1;
+        }
+        line-height: 20px;
+      }
+    }
+  }
+}
