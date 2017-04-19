@@ -29,8 +29,13 @@ $c-nav:#3e85ff;
             color: #fff;
           }
           .link-con {
+            max-height: 150px;
+            overflow: hidden;
             a {
               padding-right: 16px;
+              &:hover {
+                color: $c-nav;
+              }
             }
           }
           .link-f {
@@ -43,7 +48,7 @@ $c-nav:#3e85ff;
         color: $c-nav;
         a {
           color: $c-nav;
-          padding: 0 3px;
+          padding: 0 5px;
         }
       }
       .footer-ewm {
