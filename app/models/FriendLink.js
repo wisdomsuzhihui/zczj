@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('FriendLink', {
     FID: {
       type: DataTypes.INTEGER,
@@ -50,6 +50,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: "((1))"
     }
   }, {
-    tableName: 'FriendLink'
+    tableName: 'FriendLink',
+    timestamps: false
   });
 };

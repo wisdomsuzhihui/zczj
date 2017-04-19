@@ -2,8 +2,8 @@
 @font-face {
   font-family: 'iconfont';
   /* project id 270139 */
-  src: url('//at.alicdn.com/t/font_4cv3sa3yeejt6gvi.eot');
-  src: url('//at.alicdn.com/t/font_4cv3sa3yeejt6gvi.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_4cv3sa3yeejt6gvi.woff') format('woff'), url('//at.alicdn.com/t/font_4cv3sa3yeejt6gvi.ttf') format('truetype'), url('//at.alicdn.com/t/font_4cv3sa3yeejt6gvi.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_m77q2w3xh97ctyb9.eot');
+  src: url('//at.alicdn.com/t/font_m77q2w3xh97ctyb9.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_m77q2w3xh97ctyb9.woff') format('woff'), url('//at.alicdn.com/t/font_m77q2w3xh97ctyb9.ttf') format('truetype'), url('//at.alicdn.com/t/font_m77q2w3xh97ctyb9.svg#iconfont') format('svg');
 }
 
 .icon {
@@ -12,6 +12,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+}
+
+// 平台
+.icon-plat::before {
+  content: '\e682';
+}
+
+// 项目
+.icon-pro::before {
+  content: '\e60d';
+}
+
+// 金额
+.icon-money::before {
+  content: '\e98f';
 }
 
 // loading

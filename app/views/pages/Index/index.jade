@@ -24,12 +24,85 @@ block content
               .mark
               p.title #{item.ChannelContent.Title}
         //- 今日推荐
-        .index-box
+        .index-box.mt20
           .index-title
             span 今日推荐
+          .index-con.newsList#newsList
+            each item in news
+              .zx_news_item
+                .zx_itme_con.cf
+                  .l
+                    a(href="")
+                      span.tag 全部
+                      img(src="http://pic01.zczj.com/counseling/#{item.dataValues.newimages}@1e_1c_0o_0l_136h_220w_90q.src", alt="")
+                  .r
+                    a(href="").title #{item.dataValues.newtitle}
+                    .txt #{item.dataValues.newsynopsis}
+                    .item_bar.cf
+                      .l.cf                        
+                        -if(item.dataValues.newman == null)
+                          span.f_blue #{item.dataValues.newfrom}
+                        -else
+                          span.f_blue #{item.dataValues.newman}
+                        span #{moment(item.dataValues.newdate).format('MM/DD/YYYY')}
+                      .r
+                        span
+                          a(href="").icon.icon_msg 
+                          |#{item.dataValues.CommentCount}
+                          
+                          
+            //- 固定两个跳转到大股东的
+            .zx_news_minBrand
+              ul.zx_news_minBrand.cf
+                each item in dgd
+                  li
+                    a(href="")
+                      img(src="http://zczj01.oss-cn-shenzhen.aliyuncs.com/homeshow/#{item.dataValues.Pic}", alt="")
+
+          //-- 浏览更多
+          .button-box
+            a.button.button-load-more(href="#") 浏览更多资讯
+
+
+        //- 本月数据
         .index-box
           .index-title
             span 本月数据
+          .index-con.datas
+            .item
+              dl
+                dt 
+                  span 1月平台项目数据
+                dd
+                  .data-logo
+                    i.icon.icon-plat
+                  .data-txt
+                    p 53
+                    p 平台数量（个） 
+
+                dd
+                  .data-logo
+                    i.icon.icon-pro
+                  .data-txt
+                    p 53
+                    p 项目数量（个）  
+                dd
+                  .data-logo
+                    i.icon.icon-money
+                  .data-txt
+                    p 53
+                    p 总融资金额（万元）  
+            each item in btlist
+              .item
+                a.img(href="#")
+                  img(src="http://pic01.zczj.com/homeshow/#{item.ChannelContent.Pic}@1e_1c_0o_0l_150h_240w_90q.src", alt="")
+                p.title.ellipsis #{item.ChannelContent.Title}
+                p.data 2017-04-19
+                
+          
+          //-- 浏览更多
+          .button-box
+            a.button.button-load-more(href="#") 浏览更多数据
 
 
     //-右侧
@@ -40,7 +113,53 @@ block content
             a(href="#{item.Url}" target="_blank")
               img(src="http://pic01.zczj.com/special/#{item.Pic}", alt="")
             span.tag 活动
-            
+      .aside-item.aside-item-fourLike.mt20
+        .column
+          a(href="/special/contribute").button.button-link 投稿
+          a(href="/special/zm_writer").button.button-link 成为专栏作家
+        .column
+          a(href="/special/Index").button.button-link 创业者寻求支持
+          a(href="/special/Plat_report").button.button-link 平台寻求报道
+      .aside-item.aside-item-epNews
+        .aside-item-title 之家快讯
+        .aside-item-content 
+          ul
+            each item in epNews
+              li.item
+                a(href="#").ep-title #{item.dataValues.Title} 
+                p.time 9分钟 
+          .button-box
+            a(href="#").button.button-load-more-min 查看更多
+      //- 曝光台
+      .aside-item.aside-item-pgt
+        .aside-item-title 曝光台
+        .aside-item-content
+          ul.top-list
+            each item in pgts
+              li
+                a(href="http://bbs.zczj.com/topic/t#{item.TopicID}" target="_blank") #{item.Title}
+                .sort-status
+                  span.time #{moment(item.PostDate).format('MM/DD/YYYY')}
+                  span 
+                    i.icon.icon-view
+                    | #{item.ViewCount}
+          .button-box
+            a(href="http://bbs.zczj.com/topic/c1018" target="_blank").button.button-load-more-min 查看更多
+      //- 平台导航
+      .aside-item.aside-item-plat
+        .aside-item-title 平台导航
+        .aside-item-content
+          ul
+            each item in plats
+              li
+              
+                a.img(href="#{item.dataValues.Link}")
+                  img(src="http://pic01.zczj.com//daohangshow/20160926/20160926173645.png@4e_0o_0l_70h_70w_70q.src", alt="")
+                 
+                p.ellipsis #{item.dataValues.Title || '老苏'}
+                p.ellipsis 城市：深圳市
+                p.ellipsis 股权投资首选平台
+
 
 
   //- js

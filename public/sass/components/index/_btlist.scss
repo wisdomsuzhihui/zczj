@@ -40,13 +40,16 @@
       z-index: 11;
       padding: 0 5px;
     }
+    .tag {
+      z-index: 20;
+    }
   }
 }
 
 @mixin bt-list-767() {
   .bt-list .item {
     .title {
-      font-size: 13px;
+      font-size: 12px;
       line-height: 20px;
       height: 20px;
     }

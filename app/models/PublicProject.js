@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('PublicProject', {
     ProjectID: {
       type: DataTypes.INTEGER,
@@ -95,6 +95,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'PublicProject'
+    tableName: 'PublicProject',
+    timestamps: false
   });
 };

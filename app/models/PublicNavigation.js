@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('PublicNavigation', {
     PlatID: {
       type: DataTypes.INTEGER,
@@ -100,6 +100,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'PublicNavigation'
+    tableName: 'PublicNavigation',
+    timestamps: false
   });
 };

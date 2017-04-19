@@ -1,14 +1,22 @@
 @import '../components/aside';
 @import '../components/resetOwl/resetOwl';
 @import '../components/index/banner-aside';
-@import '../components/news/_newslist';
-@import '../components/index/_btlist';
-@import '../components/index/_title';
-@import '../mixin/_mixin';
+@import '../components/news/newslist';
+@import '../components/index/btlist';
+@import '../components/index/title';
+@import '../components/index/datas';
+@import '../components/button';
+@import '../mixin/mixin';
 main {
   >section {
     width: calc(100% - 275px);
     padding-right: 30px;
+  }
+  .side {
+    .button-box {
+      margin-top: 10px;
+      padding-bottom: 0;
+    }
   }
 }
 

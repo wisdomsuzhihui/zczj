@@ -1,0 +1,36 @@
+//- 底部
+
+section.footer-full
+  section.footer
+    .footer-center
+      .item.footer-info
+        .footer-logo
+          img(src="/images/logo-f.png", alt="")
+        .footer-nav
+          a(href="#") 关于我们
+          ||
+          a(href="#") 网站公告
+          ||
+          a(href="#") 商务合作
+          ||
+          a(href="#") 隐私声明
+        .footer-ewm
+          .img
+            img(src="/images/code_wx.jpg", alt="")
+          .info-list
+            p 官方微信号
+            p 联系人：之家妹
+            p 联系电话：0755-82557958
+            p 邮箱：service@zczj.com
+      //-友情链接
+      .item.footer-links
+        p.title 友情链接
+        .link-con
+          each item in links
+            a(href="#{item.dataValues.SiteLink}" target="_blank") #{item.dataValues.SiteName}        
+        .link-f 版权所有 © 深圳网筹互联网金融服务有限公司旗下《众筹之家》
+  section.footer-bar
+    .footer-center
+      span 深圳市网筹互联网金融服务有限公司.   
+      span ICP证：粤ICP备14040204号-2
+      img(src="http://szcert.ebs.org.cn/Images/govIcon.gif", alt="")
