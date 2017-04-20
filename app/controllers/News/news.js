@@ -3,7 +3,8 @@ var sequelize = require('../../../config/db'),
   ChannelContent = sequelize.import('../../models/ChannelContent'),
   Channel = sequelize.import('../../models/Channel'),
   Category = sequelize.import('../../models/Category'),
-  New = sequelize.import('../../models/News')
+  New = sequelize.import('../../models/News'),
+  FriendLinks = sequelize.import('../../models/FriendLink')
 Channel.hasOne(ChannelContent, {
   foreignKey: 'ChannelCode'
 })
@@ -51,12 +52,14 @@ exports.index = function (req, res) {
           ['NewsID', 'DESC']
         ]
       }).then(function (news) {
-        // console.log(JSON.stringify(news.rows))
-        console.log(news)
-        res.render('news/index', {
-          title: 'us',
-          banners: banners,
-          news: news
+        FriendLinks.findAll({}).then(function (links) {
+
+          res.render('news/index', {
+            title: 'us',
+            banners: banners,
+            news: news,
+            links: links
+          })
         })
       })
     })
