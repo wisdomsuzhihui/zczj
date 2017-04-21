@@ -1,0 +1,152 @@
+extends ../../includes/layout
+block link
+  meta(name="keywords" content="")
+  meta(name="description" content="xxx")
+  link(href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css", rel="stylesheet")
+  link(href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.theme.default.min.css", rel="stylesheet")
+  link(href="/libs/css/data/index.min.css", rel="stylesheet")
+
+
+
+block content
+  main.data-container
+    section
+      //- 轮播图
+      .slider
+        .owl-carousel.owl-theme.JS_slider
+          .slider-item
+          .slider-item
+          .slider-item
+      //- 筛选
+      .zczj-select
+        a(href="#") 众筹报告
+        a(href="#").cur 项目融资数据
+        a(href="#") 解码数据
+        a(href="#") 行业数据
+      //- 众筹报告内容
+      .zczj-list
+        div
+          a.zczj-item(href="")
+          img(src="", alt="")
+          p.zczj-item-title 2017年1月股权众筹行业简报
+          p.zczj-item-author 2017-03-31
+      //- 项目融资数据内容
+      .financing-container
+        //- 搜索栏
+        .financing-search
+          div
+            input(type="search", placeholder="搜索项目名称")
+            i.icon.icon-ss.JS_search
+        //- 数据表格
+        dl.data-list
+          dt.data-title
+            span 完成时间
+            span 项目名称
+            span 所属平台
+            span 目标金额
+            span 细分领域
+            span 地区
+          dd.data-content
+            span 03/01/2017
+            span
+              a(href="#") 大股东1号
+            span
+              img(src="http://pic01.zczj.com//daohangshow/20160926/20160926173645.png", alt="") 
+              |大股东
+            span 200万  
+            span 基金 
+            span 深圳 
+      //- 翻页
+      .pagination
+        span.sp-cur 1
+        a(href="#")
+          span 2
+        a(href="#")
+          span 3
+        a(href="#")
+          span 4
+      
+    aside#aside
+      //- 统计总览
+      .aside-item
+        .aside-item-head 一月平台数据
+        .plat
+          icon-wrapper
+            i.icon.icon-plat
+        .pro
+          .icon-wrapper
+            i.icon.icon-pro
+          .plat-txt
+            p 项目数量（个）
+            p 400
+          .money
+            .icon-wrapper
+              i.icon.icon-money
+            .plat-txt
+              p xxx
+              p xxx
+      //- 项目全国分布图
+      .aside-item
+        h2.aside-item-head 平台/项目全国分布图
+        .distribution.JS_dis
+      //- 最热行业
+      .aside-item
+        h2.aside-item-head 最热行业
+        .hottest.JS_hottest
+      //- 融资最多的平台
+      .aside-item
+        h2.aside-item-head 融资金额最多的平台
+        .financing
+          //- 股权类
+          dl.financing-item
+            dt.financing-item-title （股权类）
+            each item in [1,2,3,4]
+              dd.financing-item-content
+                span xxx
+                span.financing-progress
+                  em.progress( style="width: 85%")
+          dl.financing-item
+            dt.financing-item-title （股权类）
+            each item in [1,2,3,4]
+              dd.financing-item-content
+                span xxx
+                span.financing-progress
+                  em.progress
+  //- 只有当筛选tab为众筹报告时才显示
+  .charts-container
+    ul.charts-header.JS_charts_tab
+      li.cur 平台数据
+      li 融资额度
+    section
+      //- 平台数据
+      .charts-content
+        .charts-plat.JS_plat
+        .count-plat
+          .date-picker 时间：
+            a(href="javascript:;").JS_date_prev <
+            span.date.JS_date_txt 2017
+            a(href="javascript:;").JS_date_next >
+          .plat-statistics
+            dt.JS_statistics
+              span 月份
+              span 新增
+              span 累计
+            dd
+              span 3月
+              span 6
+              span 50000
+            dd
+              span 3月
+              span 6
+              span 50000
+            dd
+              span 3月
+              span 6
+              span 50000
+      //- 融资额度
+      .charts-content(style="display:none")
+        .charts-quota.JS_quota
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js")
+  script(src="//cdn.bootcss.com/echarts/3.5.2/echarts.js")
+  script(src="/libs/plugs/china.js")
+  script(src="/libs/scripts/js/data/index.min.js")

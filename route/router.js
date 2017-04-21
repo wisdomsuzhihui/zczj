@@ -1,6 +1,7 @@
 var News = require('../app/controllers/News/news'),
   Passport = require('../app/controllers/passport/passport'),
   Index = require('../app/controllers/Index/index'),
+  Data = require('../app/controllers/Data/data'),
 
 
 
@@ -27,5 +28,9 @@ module.exports = function (app) {
   // 新闻
   app.get('/news', News.index);
   app.get('')
+
+  // 数据
+  app.get('/data', Data.index);
+  app.get('/getJson', Data.getJson)
 
 };

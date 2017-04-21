@@ -1,0 +1,425 @@
+@import '../mixin/_mixin.scss';
+@import '../components/data/_pagination.scss';
+@import '../components/data/_columns.scss';
+body {
+  background-color: #ebecef;
+}
+
+#aside {
+  width: 267px;
+  margin-left: 28px;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+  .aside {
+    &-item {
+      background-color: #fff;
+      margin-bottom: 20px;
+      &-head {
+        font-size: 18px;
+        color: #344a5c;
+        padding: 20px 0 15px;
+        font-weight: bold;
+        text-align: center;
+        border-bottom: 1px solid #dbdcdd;
+      }
+      .plat,
+      .pro,
+      .money {
+        display: flex;
+        align-items: center;
+        padding: 18px 30px;
+        border-bottom: 1px dashed #dfe0e0;
+        &:last-child {
+          border: none;
+        }
+      }
+      .icon-wrapper {
+        width: 52px;
+        height: 52px;
+        line-height: 52px;
+        text-align: center;
+        background-color: #74a6ff;
+        margin-right: 18px;
+        border-radius: 50%;
+        .icon {
+          color: #fff;
+          font-size: 30px;
+        }
+      }
+      .plat-txt {
+        color: #344a5c;
+        p {
+          &:first-child {
+            font-size: 16px;
+          }
+          &:last-child {
+            font-size: 30px;
+            font-weight: 700;
+          }
+        }
+      }
+      .pro {
+        .icon-wrapper {
+          background-color: #40dc94;
+        }
+      }
+      .money {
+        .icon-wrapper {
+          background-color: #ffc11a;
+          .icon {
+            font-weight: 600;
+          }
+        }
+      }
+      .distribution,
+      .hottest {
+        height: 200px;
+      }
+      .financing {
+        &-item {
+          padding: 6px 16px;
+          &-title {
+            font-size: 16px;
+            color: #344a5c;
+            text-align: center;
+            margin: 20px 0;
+          }
+          &-content {
+            display: flex;
+            margin-bottom: 12px;
+            font-size: 13px;
+            span {
+              display: inline-block;
+              &:first-child {
+                width: 50px;
+                margin-right: 10px;
+                text-align: right;
+              }
+            }
+            .financing-progress {
+              flex: 1;
+              position: relative;
+              display: inline-block;
+              height: 10px;
+              overflow: hidden;
+              .progress {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to right, #0da8ea, #49def4);
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.data-container {
+  margin-top: 18px;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    &>section {
+      width: 100%;
+    }
+  }
+}
+
+// 轮播图
+.slider {
+  max-width: 805px;
+  width: 100%;
+  height: 424px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 23px;
+  &-item {
+    height: 424px;
+    background-size: cover;
+    background-position: center;
+    @media (min-width: 768px) and (max-width: 1024px) {
+      height: 352px;
+    }
+    @media screen and (max-width: 767px) {
+      height: 252px;
+    }
+  }
+  .owl-nav {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateX(-50%);
+    @extend %center;
+    .owl-prev,
+    .owl-next {
+      width: 35px;
+      height: 63px;
+      background-color: transparent;
+      background-image: url('/statics/img/tech/slide-btn.png')!important;
+      opacity: 0;
+      transition: all .3s;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+    .owl-next,
+    .owl-next:hover {
+      background-position: 35px center;
+    }
+    .owl-prev {
+      transform: translateX(-100%);
+    }
+    .owl-next {
+      transform: translateX(100%);
+    }
+  }
+  &:hover {
+    .owl-prev,
+    .owl-next {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .owl-dots {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 10px;
+  }
+  @media (min-width:805px) and (max-width: 1024px) {
+    max-width: 100%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    height: 352px;
+  }
+  @media screen and (max-width: 767px) {
+    height: 252px;
+  }
+}
+
+// 众筹报告内容
+.zczj {
+  &-list {
+    .zczj-item {
+      &-title {
+        color: #333;
+      }
+    }
+  }
+}
+
+// 项目融资数据内容
+.financing-container {
+  margin-top: 22px;
+  /*搜索*/
+  .financing-search {
+    padding: 15px;
+    width: 100%;
+    background-color: #fff;
+    >div {
+      position: relative;
+      width: 223px;
+      height: 34px;
+    }
+    input {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #4285f4;
+      padding-left: 10px;
+    }
+    .icon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      font-size: 20px;
+      color: #4285f4;
+      font-weight: bold;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+  /*表格*/
+  .data-list {
+    font-size: 16px;
+    color: #626262;
+    @media screen and (max-width: 767px) {
+      font-size: 12px;
+    }
+    .data-title,
+    .data-content {
+      display: flex;
+      justify-content: space-around;
+      >* {
+        display: inline-block;
+        width: 16.66666667%;
+        text-align: center;
+        overflow: hidden;
+      }
+    }
+    .data-title {
+      height: 42px;
+      line-height: 42px;
+    }
+    .data-content {
+      position: relative;
+      height: 80px;
+      line-height: 80px;
+      padding: 0 5px;
+      background-color: #fff;
+      border-bottom: 1px solid #ebecee;
+      transition: .3s;
+      &:hover {
+        z-index: 2;
+        box-shadow: 0 0px 6px rgba(0, 0, 0, .5);
+        @media screen and(max-width: 1024px) {
+          box-shadow: none;
+        }
+      }
+      >* {
+        &:nth-of-type(2) {
+          color: #4285f4;
+        }
+        &:nth-of-type(3) {
+          font-weight: bold;
+          @media screen and (max-width: 767px) {
+            font-size: 0
+          }
+        }
+      }
+      img {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #ebebeb;
+        vertical-align: middle;
+        border-radius: 3px;
+        @media screen and (max-width: 767px) {
+          width: 38px;
+          height: 38px;
+        }
+      }
+    }
+  }
+}
+
+// 图表
+.charts-container {
+  @extend %center;
+  background-color: #fff;
+  margin-bottom: 50px;
+  .charts {
+    &-header {
+      font-size: 0;
+      border-bottom: 1px solid #dbdcdd;
+      li {
+        position: relative;
+        font-size: 15px;
+        display: inline-block;
+        padding: 16px 22px;
+        cursor: pointer;
+        transition: .3s;
+        &::after {
+          content: ' ';
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          width: 0;
+          height: 2px;
+          background-color: #3e85ff;
+          transition: .3s;
+        }
+        &.cur,
+        &:hover {
+          color: #3e85ff;
+          &::after {
+            left: 0;
+            width: 100%;
+          }
+        }
+        @media screen and (max-width: 767px) {
+          font-size: 12px;
+        }
+      }
+    }
+    &-content {
+      padding: 20px 10px;
+      height: 340px;
+      display: flex;
+      .charts-plat {
+        flex: 1;
+      }
+      .count-plat {
+        width: 200px;
+        margin-right: 50px;
+        .date-picker {
+          font-size: 13px;
+          color: #454646;
+          a,
+          span {
+            color: #3e85ff;
+          }
+          a {
+            font-size: 16px;
+            margin: 0 5px;
+          }
+          .date {
+            display: inline-block;
+            padding: 6px 8px;
+            border: 1px dashed #b0b0b0;
+            border-radius: 5px;
+          }
+        }
+        .plat-statistics {
+          margin-top: 10px;
+          >* {
+            display: flex;
+          }
+          span {
+            display: inline-block;
+            width: 33.333%;
+            text-align: center;
+          }
+          dt {
+            height: 32px;
+            line-height: 32px;
+            color: #fff;
+            background-color: #3e85ff;
+          }
+          dd {
+            height: 42px;
+            line-height: 42px;
+            background-color: #fff;
+            border: 1px solid #c2c2c2;
+            border-top: none;
+            >span:not(:first-child) {
+              border-left: 1px solid #c2c2c2;
+            }
+          }
+        }
+        @media screen and (max-width: 767px) {
+          display: none;
+        }
+      }
+      .charts-quota {
+        width: 100%;
+        height: 100%;
+      }
+      @media screen and (max-width: 767px) {
+        flex-direction: column-reverse;
+        .count-plat {
+          width: 100%;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

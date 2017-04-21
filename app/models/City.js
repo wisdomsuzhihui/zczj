@@ -1,6 +1,6 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('City', {
     ID: {
       type: DataTypes.INTEGER,
@@ -22,6 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'City'
+    tableName: 'City',
+    timestamps: false
   });
 };

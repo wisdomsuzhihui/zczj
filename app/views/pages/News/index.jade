@@ -8,27 +8,20 @@ block link
   link(href="/libs/css/index/index.min.css",rel="stylesheet")
   
 block content
-  .banner
-    .owl-carousel.owl-theme#banner
-      each item in banners
-        div.item
-          a(href="#{item.ChannelContent.Link}" target="_blank")
-            img(src="http://pic01.zczj.com/homeshow/#{item.ChannelContent.Pic}", alt="")
-
-  main
-    section.main
-      .news-list
-        each item in news.rows
-          .item
-            a(href="").img
-              
-                img(src="http://pic01.zczj.com//counseling/#{item.newimages}@1e_1c_0o_0l_136h_220w_90q.src", alt="")
-            .con
-              .title #{item.newtitle} ==== #{item.NewsID}
-              .txt #{item.newsynopsis}
-      .button-box
-        a.button.button-load(href="javascript:;") 加载更多
-    aside.side
+  .zj-container
+    //- newsbanner
+    .news-banner.clearfix
+      .main.owl-carousel.owl-theme#newsBanner
+        .item
+          a(href="")
+            img(src="", alt="")
+            p.silder_txt.ellipsis
+            .mark
+      ul.side
+        li
+          a(href="#")
+            span.banner_list-t.ellipsis
+            span.mask
 
   
   script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js")

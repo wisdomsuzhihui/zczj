@@ -6,7 +6,9 @@ var sequelize = require('../../../config/db'),
   New = sequelize.import('../../models/News'),
   ExpressNews = sequelize.import('../../models/ExpressNews'),
   PublicNavigation = sequelize.import('../../models/PublicNavigation'),
-  FriendLinks = sequelize.import('../../models/FriendLink')
+  FriendLinks = sequelize.import('../../models/FriendLink'),
+  City = sequelize.import('../../models/City')
+
 var pgts = [{
     'Title': '曝光天使街平台无投前风控，投后管理，项目逾期6个月未完成，已无下文',
     'PostDate': '2017-04-14T00:04:03.253',
@@ -46,6 +48,13 @@ var pgts = [{
 ]
 Channel.hasOne(ChannelContent, {
   foreignKey: 'ChannelCode'
+})
+PublicNavigation.hasMany(City, {
+  foreignKey: 'CityID',
+  sourceKey: 'CityID'
+})
+PublicNavigation.hasMany(ChannelContent, {
+  foreignKey: 'ObjectID'
 })
 exports.index = function (req, res) {
   //
@@ -89,13 +98,30 @@ exports.index = function (req, res) {
               ]
             }).then(function (EpNews) {
               // body
-              ChannelContent.findAll({
-                where: {
-                  Object: '4'
-                },
-                limit: 6
+              PublicNavigation.findAll({
+
+                // attributes: ['Name', 'ImgUrl', 'PlatID', 'ShortDesc', 'Mark'],
+                include: [{
+                  model: ChannelContent,
+                  attributes: ['Sort'],
+                  where: {
+                    Object: '4'
+                  },
+
+                }, {
+                  model: City,
+                  attributes: ['CityID', 'CityName'],
+                }],
+                limit: 8,
+                offset: 0,
+                order: [
+                  [ChannelContent, 'Sort']
+                ]
+
+
 
               }).then(function (plats) {
+                console.log(plats[0].dataValues.Cities)
                 FriendLinks.findAll({
 
                 }).then(function (links) {

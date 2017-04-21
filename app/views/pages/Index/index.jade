@@ -151,14 +151,15 @@ block content
         .aside-item-content
           ul
             each item in plats
+              -var pic = item.dataValues.ImgUrl.split('|')[0] || ''
               li
               
                 a.img(href="#{item.dataValues.Link}")
-                  img(src="http://pic01.zczj.com//daohangshow/20160926/20160926173645.png@4e_0o_0l_70h_70w_70q.src", alt="")
+                  img(src="http://pic01.zczj.com//daohangshow/#{pic}@4e_0o_0l_70h_70w_70q.src", alt="")
                  
-                p.ellipsis #{item.dataValues.Title || '老苏'}
-                p.ellipsis 城市：深圳市
-                p.ellipsis 股权投资首选平台
+                p.ellipsis #{item.dataValues.Name || '老苏'}
+                p.ellipsis 城市：#{item.dataValues.Cities[0].dataValues.CityName}
+                p.ellipsis #{item.dataValues.Mark}
 
 
 

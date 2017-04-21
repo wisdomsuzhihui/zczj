@@ -9,12 +9,14 @@ var path = {
     scripts: 'public/scripts/js/**/*.js',
     sass: 'public/sass/**/*.scss',
     images: 'public/images/**',
-    clean: 'public/libs/**'
+    clean: 'public/libs/**',
+    plugs: 'public/plugs/**'
   },
   dest: {
     scripts: 'public/libs/scripts/js/',
     sass: 'public/libs/css/',
     images: 'public/libs/images',
+    plugs: 'public/libs/plugs'
   }
 };
 
@@ -70,13 +72,18 @@ gulp.task('images', function () {
     })))
     .pipe(gulp.dest(path.dest.images));
 });
-
+// 第三方插件
+gulp.task('plugs', function () {
+  return gulp.src(path.src.plugs)
+    .pipe(gulp.dest(path.dest.plugs))
+})
 // watch
 gulp.task('watch', function () {
   gulp.watch(path.src.sass, ['styles']);
   gulp.watch(path.src.jshint, ['jshint']);
   gulp.watch(path.src.scripts, ['scripts']);
   gulp.watch(path.src.images, ['images']);
+  gulp.watch(path.src.plugs, ['plugs']);
 });
 
 // 清除文件

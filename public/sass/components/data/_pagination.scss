@@ -1,0 +1,35 @@
+// 分页
+.pagination {
+  margin: 40px 0;
+  font-size: 0;
+  text-align: center;
+  span {
+    padding: 6px 12px;
+    margin: 0 5px;
+    display: inline-block;
+    color: #b2b2b2;
+    font-size: 14px;
+    background-color: #f6f6f6;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    transition: all .2s;
+    &.sp-cur,
+    &:hover {
+      background-color: #34a8f3;
+      color: #fff;
+      border-color: #34a8f3;
+    }
+  }
+}
+
+$color: #ba91ed,
+#6997ed,
+#ffac2a,
+#38e7e9,
+#91c7ae,
+#749f83,
+#ca8622,
+#bda29a,
+#008acd,
+#546570,
+#c4ccd3;
