@@ -42,7 +42,7 @@ var signOjbect = {
           })
           .done(function (results) {
             if (results.resultId === 200) {
-              console.log(results.message)
+              // console.log(results.message)
               window.location = '/'
             } else {
               console.log(results.message)

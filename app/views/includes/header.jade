@@ -60,3 +60,20 @@ header
           a(href="/") 老苏
         li
           a(href="/") 测试
+script.
+  $.ajax({
+    url:'/isLogin',
+    method: 'GET',
+  }).done(function(results){
+    if(results.resultId == 200){
+      document.querySelector('#head_show').innerHTML = results.str;
+    }
+    console.log(results.message)
+  })
+
+  function LoginOutMon(){
+    window.location.href = '/logout'
+  }
+  function LoginMon(){
+    window.location.href= '/signin'
+  }

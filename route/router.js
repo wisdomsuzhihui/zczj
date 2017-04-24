@@ -21,6 +21,7 @@ module.exports = function (app) {
   // 用户登陆路由
   app.get('/signin', Passport.showSignin)
   app.get('/passport/signin', Passport.signin)
+  app.get('/isLogin', Passport.isLogin)
 
   // 用户登出路由
   app.get('/logout', Passport.logout)
