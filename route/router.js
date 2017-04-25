@@ -28,7 +28,7 @@ module.exports = function (app) {
 
   // 新闻
   app.get('/news', News.index);
-  app.get('')
+  app.get('/news/NewsList', News.newsList);
 
   // 数据
   app.get('/data', Data.index);

@@ -3,8 +3,8 @@ extends ../../includes/layout
 block link  
   meta(name="keywords" content="")
   meta(name="description" content="xxx")
-  link(href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css", rel="stylesheet")
-  link(href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.theme.default.min.css", rel="stylesheet")
+  link(href="/libs/plugs/owl-carousel/assets/owl.carousel.min.css", rel="stylesheet")
+  link(href="/libs/plugs/owl-carousel/assets/owl.theme.default.min.css", rel="stylesheet")
   link(href="/libs/css/news/index.min.css",rel="stylesheet")
   
 block content
@@ -47,7 +47,7 @@ block content
             .zx_itme_con.cf
               .l
                 a(href="#")
-                  span.tag
+                  span.tag #{item.Categories[0].ClassName}
                   img(src="#{imgSrc}", alt="")
               .r
                 a(href="#").title #{item.newtitle}
@@ -68,6 +68,6 @@ block content
           a.current(href="javascript:;") 周排名
           a(href="javascript:;") 月排名
   // js 引入
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js")
+  script(src="/libs/plugs/owl-carousel/owl.carousel.min.js")
   script(src="/libs/scripts/js/news/index.min.js")
   

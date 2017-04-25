@@ -11,8 +11,9 @@ Channel.hasOne(ChannelContent, {
 // Category.hasMany(New, {
 //   foreignKey: 'CategoryID'
 // })
-News.hasOne(Category, {
-  foreignKey: 'CategoryID'
+News.hasMany(Category, {
+  foreignKey: 'CategoryID',
+  sourceKey: 'CategoryID'
 })
 exports.index = function (req, res) {
   Channel.findAll({
@@ -33,6 +34,7 @@ exports.index = function (req, res) {
       // body
       FriendLinks.findAll({}).then(function (links) {
         News.findAndCountAll({
+          // attributes: ['CategoryLevel', 'newdate', 'newman', 'newpoint', 'NewsID', 'newsynopsis', 'newtitle', 'newform', 'DisplayMode', 'newimages', 'commentCount'],
           where: {
             IsPublish: true,
             PlateID: '0',
@@ -40,7 +42,10 @@ exports.index = function (req, res) {
               $like: '0,10' + '%'
             }
           },
-          include: [Category],
+          include: [{
+            model: Category,
+            attributes: ['ClassName', 'CategoryID']
+          }],
           order: [
             [
               'newdate', 'DESC'
@@ -50,7 +55,7 @@ exports.index = function (req, res) {
           offset: 0,
           limit: 14
         }).then(function (news) {
-          console.log(JSON.parse((JSON.stringify(news))))
+          // console.log(JSON.parse((JSON.stringify(news))))
           res.render('news/index', {
             title: '资讯首页',
             bannerList: JSON.parse((JSON.stringify(bannerList))),
@@ -63,7 +68,108 @@ exports.index = function (req, res) {
     })
   })
 }
-
+/**
+ * 动态请求分类数据
+ */
+exports.newsList = function (req, res) {
+  // body
+  var PageSize = 7,
+    CurrentPage = req.body.page,
+    category = req.body.category,
+    RowCount = 0,
+    pagenumbers = '';
+  if (!category) {
+    News.findAndCountAll({
+      where: {
+        IsPublish: true,
+        PlateID: '0',
+        CategoryLevel: {
+          $like: '0,10' + '%'
+        }
+      },
+      include: [{
+        model: Category,
+        attributes: ['ClassName', 'CategoryID']
+      }],
+      order: [
+        ['newdate', 'DESC'],
+        ['NewsID', 'ASC']
+      ],
+      offset: CurrentPage * PageSize,
+      limit: 14
+    }).then(function (newslist) {
+      return res.JSON({
+        resultId: 200,
+        newslist: newslist
+      })
+    })
+  } else if (category == 99) {
+    News.findAndCountAll({
+      where: {
+        IsPublish: true,
+        PlateID: '0',
+        CategoryLevel: {
+          // $like: '0,64%|0,10,58|0,10,59|0,10,60|0,10,62|0,10,63'
+          $like: {
+            $any: ['0,64%', '0,10,58', '0,10,59', '0,10,60', '0,10,62', '0,10,63']
+          }
+        }
+      },
+      include: [{
+        model: Category,
+        attributes: ['ClassName', 'CategoryID']
+      }],
+      order: [
+        ['newdate', 'DESC'],
+        ['NewsID', 'ASC']
+      ],
+      offset: CurrentPage * PageSize,
+      limit: 14
+    }).then(function (newslist) {
+      return res.JSON({
+        resultId: 200,
+        newslist: newslist
+      })
+    })
+  } else {
+    Category.findAll({
+      where: {
+        CategoryID: category
+      }
+    }).then(function (_category) {
+      if (_category != null) {
+        News.findAndCount({
+          where: {
+            IsPublish: true,
+            PlateID: '0',
+            CategoryLevel: {
+              $like: JSON.parse(JSON.stringify(_category)).CategoryLevel
+            }
+          },
+          include: [{
+            model: Category,
+            attributes: ['ClassName', 'CategoryID']
+          }],
+          order: [
+            ['newdate', 'DESC'],
+            ['NewsID', 'ASC']
+          ],
+          offset: CurrentPage * PageSize,
+          limit: 14
+        }).then(function (newslist) {
+          return res.JSON({
+            resultId: 200,
+            newslist: newslist
+          })
+        })
+      } else {
+        return res.JSON({
+          resultId: -1
+        })
+      }
+    })
+  }
+}
 
 
 // exports.index = function (req, res) {
