@@ -5,7 +5,7 @@ block link
   meta(name="description" content="xxx")
   link(href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css", rel="stylesheet")
   link(href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.theme.default.min.css", rel="stylesheet")
-  link(href="/libs/css/index/index.min.css",rel="stylesheet")
+  link(href="/libs/css/news/index.min.css",rel="stylesheet")
   
 block content
   .zj-container
@@ -13,19 +13,61 @@ block content
     .news-banner.clearfix
       .main.owl-carousel.owl-theme#newsBanner
         each item in bannerList
-          -var imgSrc = 'http://zczj01.oss-cn-shenzhen.aliyuncs.com/'+item.ChannelContent.Pic;
+          -var imgSrc = 'http://zczj01.oss-cn-shenzhen.aliyuncs.com/homeshow/'+item.ChannelContent['Pic']
           .item
             a(href="#{xx}")
-              img(src="http://zczj01.oss-cn-shenzhen.aliyuncs.com/'"+item.ChannelContent.pic, alt="")
-              p.silder_txt.ellipsis
+              img(src="#{imgSrc}", alt="#{item.ChannelName}")
+              p.silder_txt.ellipsis #{item.ChannelContent['Title']}
               .mark
       ul.side
-        li
-          a(href="#")
-            span.banner_list-t.ellipsis
-            span.mask
+        each item in bannerR_list
+          -var imgSrc = 'http://zczj01.oss-cn-shenzhen.aliyuncs.com//homeshow/'+item.ChannelContent['Pic']
+          li
+            a(href="#" style="background-image:url('#{imgSrc}')")
+              span.banner_list-t.ellipsis #{item.ChannelContent['Title']}
+              span.mask
 
-  
+  //- 主体
+  main.news-detail
+    section.news-content.mt25
+      .tabbar#tabbar
+        .s_scroller
+          a.button.button-tab(data-category="0", data-page="0", href="javascript:;") 全部
+          a.button.button-tab(data-category="99", data-page="0", href="javascript:;") 专栏
+          //- a.button.button-tab(data-category="63", data-page="0", href="javascript:;") 数据
+          a.button.button-tab(data-category="53", data-page="0", href="javascript:;") 众筹
+          a.button.button-tab(data-category="54", data-page="0", href="javascript:;") 政策
+          a.button.button-tab(data-category="55", data-page="0", href="javascript:;") 国际
+          a.button.button-tab(data-category="56", data-page="0", href="javascript:;") 研究
+          a.button.button-tab(data-category="57", data-page="0", href="javascript:;") 创投
+      .newsList#newsList
+        each item in news.rows
+          -var imgSrc = 'http://pic01.zczj.com//counseling/'+ item.newimages+'@1e_1c_0o_0l_136h_220w_90q.src'
+          .zx_news_item
+            .zx_itme_con.cf
+              .l
+                a(href="#")
+                  span.tag
+                  img(src="#{imgSrc}", alt="")
+              .r
+                a(href="#").title #{item.newtitle}
+                .txt #{item.newsynopsis}
+                .item_bar.cf
+                  .l.cf
+                    span.f_blue #{item.newman || '老苏'}
+                    span #{moment(item.newdate).fromNow(hh)}
+                  .r
+                    span
+                      a(href="#").icon.icon-msg #{item.CommentCount}
+      .button-box
+        a.button.button-load-more(href="javascript:;") 浏览更多资讯
+    aside#aside.news-aside.mt25
+      .aside-item
+        h2.aside-item-title TOP10
+        .sub-nav
+          a.current(href="javascript:;") 周排名
+          a(href="javascript:;") 月排名
+  // js 引入
   script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js")
-  script(src="/libs/scripts/js/index/index.min.js")
+  script(src="/libs/scripts/js/news/index.min.js")
   

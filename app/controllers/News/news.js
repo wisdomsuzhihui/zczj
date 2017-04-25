@@ -3,15 +3,17 @@ var sequelize = require('../../../config/db'),
   ChannelContent = sequelize.import('../../models/ChannelContent'),
   Channel = sequelize.import('../../models/Channel'),
   Category = sequelize.import('../../models/Category'),
-  New = sequelize.import('../../models/News'),
+  News = sequelize.import('../../models/News'),
   FriendLinks = sequelize.import('../../models/FriendLink')
 Channel.hasOne(ChannelContent, {
   foreignKey: 'ChannelCode'
 })
-Category.hasMany(New, {
+// Category.hasMany(New, {
+//   foreignKey: 'CategoryID'
+// })
+News.hasOne(Category, {
   foreignKey: 'CategoryID'
 })
-
 exports.index = function (req, res) {
   Channel.findAll({
     where: {
@@ -19,14 +21,44 @@ exports.index = function (req, res) {
     },
     include: [ChannelContent]
   }).then(function (bannerList) {
-    console.log()
-    // console.log(bannerList)
-    FriendLinks.findAll({}).then(function (links) {
-
-      res.render('news/index', {
-        title: '资讯首页',
-        bannerList: JSON.parse((JSON.stringify(bannerList))),
-        links: links
+    // console.log(JSON.parse((JSON.stringify(bannerList))))
+    Channel.findAll({
+      where: {
+        ChannelName: '资讯_广告_右'
+      },
+      include: [ChannelContent],
+      offset: 0,
+      limit: 4
+    }).then(function (bannerR_list) {
+      // body
+      FriendLinks.findAll({}).then(function (links) {
+        News.findAndCountAll({
+          where: {
+            IsPublish: true,
+            PlateID: '0',
+            CategoryLevel: {
+              $like: '0,10' + '%'
+            }
+          },
+          include: [Category],
+          order: [
+            [
+              'newdate', 'DESC'
+            ],
+            ['NewsID', 'ASC']
+          ],
+          offset: 0,
+          limit: 14
+        }).then(function (news) {
+          console.log(JSON.parse((JSON.stringify(news))))
+          res.render('news/index', {
+            title: '资讯首页',
+            bannerList: JSON.parse((JSON.stringify(bannerList))),
+            bannerR_list: JSON.parse((JSON.stringify(bannerR_list))),
+            links: links,
+            news: JSON.parse((JSON.stringify(news)))
+          })
+        })
       })
     })
   })
