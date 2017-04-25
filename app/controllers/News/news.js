@@ -72,6 +72,7 @@ exports.index = function (req, res) {
  * 动态请求分类数据
  */
 exports.newsList = function (req, res) {
+  console.log(req.body)
   // body
   var PageSize = 7,
     CurrentPage = req.body.page,
