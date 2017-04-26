@@ -181,38 +181,36 @@ exports.newsList = function (req, res) {
       }
     }).then(function (_cat) {
       var _catLeve = JSON.parse(JSON.stringify(_cat)).CategoryLevel
-      if (_catLeve != null) {
-        News.findAndCountAll({
-          where: {
-            IsPublish: true,
-            PlateID: '0',
-            CategoryLevel: {
-              $like: _catLeve
-            }
-          },
-          include: [{
-            model: Category,
-            attributes: ['ClassName', 'CategoryID']
-          }],
-          order: [
-            ['newdate', 'DESC'],
-            ['NewsID', 'ASC']
-          ],
-          offset: (CurrentPage - 1) * PageSize,
-          limit: PageSize
-        }).then(function (list) {
-          var _list = JSON.parse(JSON.stringify(list))
-          if (_list.rows.length) {
-            for (var i = 0; i < _list.rows.length; i++) {
-              _list.rows[i].DateForm = moment(_list.rows[i].newdate).fromNow();
-            }
+      News.findAndCountAll({
+        include: [{
+          model: Category,
+          attributes: ['ClassName', 'CategoryID']
+        }],
+        offset: (CurrentPage - 1) * PageSize,
+        limit: PageSize,
+        where: {
+          IsPublish: true,
+          PlateID: '0',
+          CategoryLevel: {
+            $like: _catLeve
           }
-          return res.json({
-            resultId: 200,
-            newslist: _list
-          })
+        },
+        order: [
+          ['newdate', 'DESC'],
+          ['NewsID', 'ASC']
+        ]
+      }).then(function (list) {
+        var _list = JSON.parse(JSON.stringify(list))
+        if (_list.rows.length) {
+          for (var i = 0; i < _list.rows.length; i++) {
+            _list.rows[i].DateForm = moment(_list.rows[i].newdate).fromNow();
+          }
+        }
+        return res.json({
+          resultId: 200,
+          newslist: _list
         })
-      }
+      })
     })
 
   }
