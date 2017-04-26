@@ -19,6 +19,10 @@ app.set('views', './app/views/pages');
 app.set('view engine', 'jade');
 
 db.import('./app/models/ZC_Session')
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ // for parsing application/x-www-form-urlencoded
+  extended: true
+}))
 app.use(cookieParser());
 app.use(session({
   secret: 'zczj',

@@ -54,7 +54,21 @@ function funAjax(URL, method, cb) {
       category: cat,
       page: page
     }, function (data) {
-      console.log(data)
+      loading.style.display = 'none';
+      iLock = true;
+      if (data.resultId == 200) {
+
+        if (data.newslist.rows.length) {
+          if (loadPage) {
+            newsList.innerHTML += ChangeDom(data.newslist);
+          } else {
+            newsList.innerHTML = ChangeDom(data.newslist);
+          }
+        }
+      } else {
+
+      }
+      domCache[curIndex] = newsList.innerHTML;
     })
   }
 
@@ -77,23 +91,26 @@ function funAjax(URL, method, cb) {
   function checkFistLoad(obj, i) {
     return obj.getAttribute('data-page') === pageList[i] && parseInt(obj.getAttribute('data-page')) === 0;
   }
+  loadBtn.addEventListener('click', function () {
+    getData(categoryList[curIndex], pageList[curIndex], true)
+  })
 })();
 
 
 // 拼字符串
 function ChangeDom(data) {
   var datastr = "",
-    imgConfig = $('#imgConfig').val(),
+    imgConfig = 'http://pic01.zczj.com/',
     imgA = imgConfig + 'counseling/',
     imgStyle1 = "@1e_1c_0o_0l_136h_220w_90q.src", //一般模式图的尺寸
     imgStyle2 = "@1e_1c_0o_0l_165h_242w_90q.src", //图文模式图的尺寸
     imgStyle3 = "@1e_1c_0o_0l_300h_400w_90q.src"; //单图模式图的尺寸
-  for (var i = 0; i < data.NewsList.length; i++) {
-    var news = data.NewsList[i];
+  for (var i = 0; i < data.rows.length; i++) {
+    var news = data.rows[i];
     var oImg = $('<img />');
     if (news.DisplayMode == 1 || news.DisplayMode == 0) { //一般模式
 
-      datastr += "<div class=\"zx_news_item\"><div class=\"zx_itme_con cf\"><div class=\"l\"><a href=\"/news/" + news.DateStr + "/content_" + news.NewsID + ".html\">" + "<span class=\"tag\">" + news.CategoryName + "</span>"
+      datastr += "<div class=\"zx_news_item\"><div class=\"zx_itme_con cf\"><div class=\"l\"><a href=\"/news/" + news.DateStr + "/content_" + news.NewsID + ".html\">" + "<span class=\"tag\">" + news.Categories[0].ClassName + "</span>"
       var ImgPath1 = "";
       if (news.newimages != null && news.newimages.length > 0) {
         var arr = news.newimages.split('|');
@@ -132,7 +149,7 @@ function ChangeDom(data) {
         }
       }
 
-      datastr += "<li class=\"ml0\"><span class=\"tag\">" + news.CategoryName + "</span><a href=\"/news/" + news.DateStr + "/content_" + news.NewsID + ".html\" class=\"\" target=\"_blank\"><img src=\"" + imgA + ImgPath1 + imgStyle2 + "\" alt=\"\" onerror='nofind(this)'/></a></li>" + "<li><span class=\"tag\">" + news.CategoryName + "</span><a href=\"/news/" + news.DateStr + "/content_" + news.NewsID + ".html\" class=\"\" target=\"_blank\"><img src=\"" + imgA + ImgPath2 + imgStyle2 + "\" alt=\"\" onerror='nofind(this)'/></a></li>" + "<li><span class=\"tag\">" + news.CategoryName + "</span><a href=\"/news/" + news.DateStr + "/content_" + news.NewsID + ".html\" class=\"\" target=\"_blank\"><img src=\"" + imgA + ImgPath3 + imgStyle2 + "\" alt=\"\" onerror='nofind(this)'/></a></li>" + "</ul><div class=\"item_bar cf\"><div class=\"l cf\"><span class=\"f_blue\">"
+      datastr += "<li class=\"ml0\"><span class=\"tag\">" + news.Categories[0].ClassName + "</span><a href=\"/news/" + news.DateStr + "/content_" + news.NewsID + ".html\" class=\"\" target=\"_blank\"><img src=\"" + imgA + ImgPath1 + imgStyle2 + "\" alt=\"\" onerror='nofind(this)'/></a></li>" + "<li><span class=\"tag\">" + news.CategoryName + "</span><a href=\"/news/" + news.DateStr + "/content_" + news.NewsID + ".html\" class=\"\" target=\"_blank\"><img src=\"" + imgA + ImgPath2 + imgStyle2 + "\" alt=\"\" onerror='nofind(this)'/></a></li>" + "<li><span class=\"tag\">" + news.CategoryName + "</span><a href=\"/news/" + news.DateStr + "/content_" + news.NewsID + ".html\" class=\"\" target=\"_blank\"><img src=\"" + imgA + ImgPath3 + imgStyle2 + "\" alt=\"\" onerror='nofind(this)'/></a></li>" + "</ul><div class=\"item_bar cf\"><div class=\"l cf\"><span class=\"f_blue\">"
       var newman = "";
       if (news.newman == null || news.newman.length == 0) { //如果没有作者，就显示来源
         newman = '匿名' //news.newfrom;
