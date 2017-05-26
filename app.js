@@ -14,7 +14,7 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   app = express();
 
-
+  //laosu test 
 app.set('views', './app/views/pages');
 app.set('view engine', 'jade');
 
