@@ -8,6 +8,11 @@ block link
 block content
   main
     section.main
+      vidoe(class="video-js" id="my-video" data-setup="{}" controls preload="auto" width="640" height="264" poster="MY_VIDEO_POSTER.jpg")
+        source(src="http://v.zczj.com/Act-ss-m3u8-hd/516b998d353c43d0a5133ce4036f002b/MOV_0026.m3u8", type="video/m3u8")
+       
+
+      script(src="http://vjs.zencdn.net/vjs-version/video.js")
       //- banner 
       .banner-top.owl-carousel.owl-theme#banner.slide
         each item in banners
